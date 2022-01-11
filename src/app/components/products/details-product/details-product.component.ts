@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductsEntreprise } from 'src/app/models/products';
 import { CardService } from 'src/app/shared/services/card.service';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -14,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class DetailsProductComponent implements OnInit {
   getId: any;
   items = this.cardService.getItems();
+  @ViewChild('quantity') quantityInput;
   currentProduct: ProductsEntreprise | undefined;
   currentproduct: any;
   constructor(
@@ -62,19 +63,45 @@ export class DetailsProductComponent implements OnInit {
         });
   }
   plus() {
-    this.items.forEach(item => {
+    /* this.items.forEach(item => {
       this.quantite = item.qtite * 0;
       console.log(this.quantite)
       this.quantite = this.quantite + 1;
-    })
+    }) */
+    let value = parseInt(this.quantityInput.nativeElement.value);
+    if (this.currentproduct.qtite >= 1) {
+      value++;
+
+      if (value > this.currentproduct.qtite) {
+        // @ts-ignore
+        value = this.currentproduct.qtite;
+      }
+    } else {
+      return;
+    }
+
+    this.quantityInput.nativeElement.value = value.toString();
   }
   moins() {
-    if (this.quantite != 1) {
+    /* if (this.quantite != 1) {
       this.items.forEach(item => {
         this.quantite = item.qtite = 1
         this.quantite = this.quantite - 1;
       })
+    } */
+    let value = parseInt(this.quantityInput.nativeElement.value);
+    if (this.currentproduct.qtite > 0) {
+      value--;
+
+      if (value <= 0) {
+        // @ts-ignore
+        value = 0;
+      }
+    } else {
+      return;
     }
+    this.quantityInput.nativeElement.value = value.toString();
   }
 }
+
 

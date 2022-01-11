@@ -60,7 +60,7 @@
                                     </ul>
 
                                 </div>
-                                <p class="price">{{currentproduct.price}}
+                                <p class="price">{{currentproduct.price | currency:'Fcfa '}}
                                 </p>
                                 <p class="description">
                                     {{currentproduct.desc}}
@@ -81,10 +81,12 @@
                                                 <i class="ti-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="text" name="quant[1]"
+                                        <input #quantity type="number"
                                             class="input-number"
-                                            data-min="1" data-max="10"
-                                            value={{quantite}}>
+                                            [max]="currentproduct?.qtite"
+                                            [min]="currentproduct?.qtite >= 1 ? currentproduct?.qtite : 0"
+                                            readonly
+                                            value="{{currentproduct?.qtite >= 1 ? 1 : 0}}">
                                         <div class="button plus">
                                             <button type="button" class="btn
                                                 btn-primary btn-number"
