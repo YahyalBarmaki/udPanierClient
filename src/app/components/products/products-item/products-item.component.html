@@ -1,0 +1,24 @@
+
+<div class="card h-60">
+    <!-- Product image-->
+    <img class="card-img-top"
+        src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
+        alt="..." />
+    <!-- Product details-->
+    <div class="card-body p-4">
+
+        <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder"> {{product.title}}</h5>
+            <!-- Product price-->
+            <span class="text-muted">{{product.price}}
+                Fcfa</span>
+        </div>
+    </div>
+    <!-- Product actions-->
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                [routerLink]="['/products',product.id]">Voir
+                plus</a></div>
+    </div>
+</div>

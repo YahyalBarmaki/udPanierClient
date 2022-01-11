@@ -1,0 +1,157 @@
+<!-- Shopping Cart -->
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="bread-inner">
+          <ul class="bread-list">
+            <li><a href="#">Home<i class="ti-arrow-right"></i></a></li>
+            <li class="active"><a href="#">Cart</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumbs -->
+<div class="shopping-cart section">
+  
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-12">
+        <!-- Shopping Summery -->
+        <table class="table shopping-summery">
+          <thead>
+            <tr class="main-hading">
+              <th>PRODUCT</th>
+              <th>NAME</th>
+              <th class="text-center">UNIT PRICE</th>
+              <th class="text-center">QUANTITY</th>
+              <th class="text-center">TOTAL</th>
+              <th class="text-center"><i class="ti-trash remove-icon"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let item of items; index as itemNo">
+
+              <td class="image" data-title="No"><img
+                  src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
+                  alt="#"></td>
+              <td class="product-des" data-title="Description">
+                <p class="product-name"><a href="#">Cart</a></p>
+                <p class="product-des">Lorem Ipsum is simply dummy text of the
+                  printing and typesetting industry. </p>
+              </td>
+              <td class="price" data-title="Price"><span>{{item.price}}</span></td>
+              <td class="qty" data-title="Qty">{{item.qtite}}
+                <!-- Input Order -->
+                <!--div class="input-group">
+                  <div class="button minus">
+                    <button type="button" class="btn btn-primary btn-number"
+                      disabled="disabled" data-type="minus"
+                      data-field="quant[1]">
+                      <i class="ti-minus"></i>
+                    </button>
+                  </div>
+                  <input type="text" name="quant[1]" class="input-number"
+                    data-min="1" data-max="100" value="1">
+                  <div class="button plus">
+                    <button type="button" class="btn btn-primary btn-number"
+                      data-type="plus" data-field="quant[1]">
+                      <i class="ti-plus"></i>
+                    </button>
+                  </div>
+                </div-->
+                <!--/ End Input Order -->
+              </td>
+              <td class="total-amount" data-title="Total"><span>{{item.price *
+                  item.qtite}}</span></td>
+              <td (click)="onDelete(itemNo)"><i class="ti-trash remove-icon"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <!--/ End Shopping Summery -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <!-- Total Amount -->
+        <div class="total-amount">
+          <div class="row">
+            <div class="col-lg-8 col-md-5 col-12">
+              <div class="left">
+                <div class="coupon">
+
+                </div>
+
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-7 col-12">
+              <div class="right">
+                <ul>
+                  <li>Cart Subtotal<span>{{cartTotal}}</span></li>
+                  <li>Shipping<span>Free</span></li>
+                  <li>You Save<span>1000 Fcfa</span></li>
+                  <li class="last">Vous Payez<span>1000 Fcfa</span></li>
+                </ul>
+                <div class="button5">
+                  <a href="/cart" class="btn" data-toggle="modal"
+                    data-target="#exampleModal">Vérifier</a>
+                  <a href="#" class="btn">Continuer vos achats</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ End Total Amount -->
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ End Shopping Cart -->
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body m-8 p-5">
+        <br><br><br>
+        <form>
+          <div class="form-group">
+            <h2>Veillez connecter svp</h2>
+            <label for="exampleInputEmail1">Addresse Email</label>
+            <input type="email" class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Entrer votre email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe</label>
+            <input type="password" class="form-control"
+              id="exampleInputPassword1" placeholder="Votre mot de passe">
+          </div>
+          <div class="row">
+            <div class="col text-center">
+
+              <button type="submit" class="btn btn-primary">SE
+                CONNECTER</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal end -->
