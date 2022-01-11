@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsEntreprise, productsEntreprises } from 'src/app/models/products';
+import { ProductsEntreprise } from 'src/app/models/products';
 import { CardService } from 'src/app/shared/services/card.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,9 +12,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./details-product.component.css']
 })
 export class DetailsProductComponent implements OnInit {
+  getId: any;
   items = this.cardService.getItems();
-  //productsList: ProductsEntreprise[] = [];
-  product: ProductsEntreprise | undefined;
+  currentProduct: ProductsEntreprise | undefined;
+  currentproduct: any;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -23,16 +24,23 @@ export class DetailsProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('productId'));
-    this.product = productsEntreprises.find(product => product.id === productIdFromRoute);
+    const routeParams = this.route.snapshot.paramMap.get('productId');
+    this.getId = routeParams;
+    console.log(this.getId)
+    this.productService.getProductById(this.getId).subscribe((res => {
+      this.currentproduct = res
+      console.log(this.currentproduct)
+      //console.log(res, 'res==>')
+    }))
+
     this.items.forEach(item => {
 
       console.log(item.qtite)
 
     })
 
-    //console.log(this.product?.qtite)
+    //console.log(this.currentProduct)
+    //this.getProduct(this.route.snapshot.paramMap.get('id'));
   }
   alertSuccess() {
     this.toastr.show('Ajout reussi', 'Message')
@@ -41,8 +49,17 @@ export class DetailsProductComponent implements OnInit {
   addToCart(product: ProductsEntreprise) {
     this.cardService.addToCart(product);
     //window.alert('Your product has been added to the cart!');
-
-
+  }
+  getProduct(id): void {
+    this.productService.getProductById(id)
+      .subscribe(
+        product => {
+          this.currentProduct = product;
+          console.log(product);
+        },
+        error => {
+          console.log(error);
+        });
   }
   plus() {
     this.items.forEach(item => {

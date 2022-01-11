@@ -13,6 +13,7 @@ export class CardService {
   }
 
   getItems() {
+    console.log("hello")
     return this.items;
   }
 

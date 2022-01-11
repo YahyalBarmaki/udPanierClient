@@ -13,10 +13,11 @@ export class ProductsItemComponent implements OnInit {
   @Input() product!: ProductsEntreprise;
   @Input() productItemP!: ProductsParticulier;
 
+  currentProduct = null;
   constructor(private cd: CardService, private productService: ProductService) { }
 
   ngOnInit(): void {
-    //console.log(this.product)
+
 
   }
   handleAddToCart(product: ProductsEntreprise) {
