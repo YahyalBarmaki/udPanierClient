@@ -46,7 +46,6 @@ export class DetailsProductComponent implements OnInit {
   alertSuccess() {
     this.toastr.show('Ajout reussi', 'Message')
   }
-  quantite = 1;
   addToCart(product: ProductsEntreprise) {
     this.cardService.addToCart(product);
     //window.alert('Your product has been added to the cart!');
@@ -63,19 +62,17 @@ export class DetailsProductComponent implements OnInit {
         });
   }
   plus() {
-    /* this.items.forEach(item => {
-      this.quantite = item.qtite * 0;
-      console.log(this.quantite)
-      this.quantite = this.quantite + 1;
-    }) */
+
     let value = parseInt(this.quantityInput.nativeElement.value);
+    console.log(value)
     if (this.currentproduct.qtite >= 1) {
       value++;
 
-      if (value > this.currentproduct.qtite) {
+      /* if (value > this.currentproduct.qtite) {
         // @ts-ignore
         value = this.currentproduct.qtite;
-      }
+        console.log(value)
+      } */
     } else {
       return;
     }
@@ -83,12 +80,7 @@ export class DetailsProductComponent implements OnInit {
     this.quantityInput.nativeElement.value = value.toString();
   }
   moins() {
-    /* if (this.quantite != 1) {
-      this.items.forEach(item => {
-        this.quantite = item.qtite = 1
-        this.quantite = this.quantite - 1;
-      })
-    } */
+
     let value = parseInt(this.quantityInput.nativeElement.value);
     if (this.currentproduct.qtite > 0) {
       value--;
