@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ececec;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a.nav-link.active {
+  color: #f6bc44 !important;
+}
+
+body a {
+  text-decoration: none !important;
+}
+
+footer {
+  background: #000 !important;
+  width: 100%;
+}
+
+button.btn.btnform {
+  background: #f6bc44;
+  width: 150px;
+  height: 54px;
+  font-size: 20px;
+  border-radius: 0;
+  border: 1px solid #f6bc44;
+  margin-top: 33px;
+}
+
+button.btn.btnform:focus {
+  color: #fff;
+  background-color: #f6bc44 !important;
+  border-color: #f6bc44 !important;
+  box-shadow: none !important;
+}
+
+input[type="text"], input[type="password"] {
+  border: none !important;
+}
+
+.social-login a {
+  height: 40px !important;
+  width: 40px !important;
+}

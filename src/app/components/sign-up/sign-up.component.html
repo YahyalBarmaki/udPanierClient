@@ -1,0 +1,101 @@
+
+
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 contents">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="mb-4">
+              <h3><strong>S'inscrire</strong></h3>
+              <p class="mb-4">
+                Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
+                consectetur adipisicing.
+              </p>
+            </div>
+
+            <form [formGroup]='formValue'>
+              <div class="row">
+                <div class="form-group first col-lg-6 col-sm-6 col-md-12">
+                  <label for="fullname">FullName</label>
+                  <input type="text" class="form-control" id="username"
+                    formControlName="username" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group first col-lg-6 col-sm-6 col-md-12">
+                  <label for="entreprise">Email</label>
+                  <input type="text" class="form-control" id="entreprise"
+                    formControlName="email" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group first col-lg-6 col-sm-6 col-md-12">
+                  <label for="password">Mot de passe</label>
+                  <input type="password" class="form-control" id="password"
+                    formControlName="password" />
+                </div>
+                <!--<div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Type
+                      de compte</label>
+                  </div>
+                  <select class="custom-select" formControlName="typeDeCompte"
+                    (change)="onChange($event)">
+                    <option disabled>---Selectionner---</option>
+                    <option *ngFor="let item of resulallcard" [value]="item">{{item}}</option>
+                  </select>
+
+                  <select class="custom-select"
+                    (change)="selectInput($event.target.value)"
+                    formControlName="typeDeCompte">
+                    <option value="particulier">Particulier</option>
+                    <option value="entreprise">Entreprise</option>
+                  </select>
+
+                </div>!-->
+              </div>
+
+              <!--<div class="row" id="nomEntreprise" *ngIf="isNameSelected">
+                <div class="form-group first col-lg-6 co l-sm-6 col-md-12">
+                  <label for="nomEntreprise">Nom Entreprise</label>
+                  <input type="text" class="form-control" id="nomEntreprise"
+                    formControlName="entreprise" />
+                </div>
+                <div class="form-group first col-lg-6 co l-sm-6 col-md-12">
+                  <label for="poste">Poste</label>
+                  <input type="text" class="form-control" id="poste"
+                    formControlName="poste" />
+                </div>
+
+              </div>-->
+              <input
+                type="submit"
+                class="SubmitConnexion col-lg-6 col-sm-6 col-md-16"
+                value="S'inscrire"
+                class="btn text-white btn-primary bg-black"
+                (click)='register()'
+                />
+              <!-- <span class="d-block text-left my-4 text-muted"> Ou s'inscrire avec</span>
+            <div class="social-login">
+              <a href="#" class="facebook">
+                <span class="icon-facebook mr-3"></span>
+              </a>
+              <a href="#" class="twitter">
+                <span class="icon-twitter mr-3"></span>
+              </a>
+              <a href="#" class="google">
+                <span class="icon-google mr-3"></span>
+              </a>
+              <a href="#" class="linkedin">
+                <span class="icon-linkedin mr-3"></span>
+              </a>
+            </div> !-->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

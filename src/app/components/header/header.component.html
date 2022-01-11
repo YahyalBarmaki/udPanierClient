@@ -1,0 +1,166 @@
+<!-- Topbar -->
+<div class="top-bar">
+  <div class="content-topbar flex-sb-m h-full container">
+    <div class="center-top-bar">
+      🌍 Livraison gratuite pour les commandes standard de plus de 42 605 F CFA.
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header shop">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-12">
+          <!-- Top Left -->
+          <div class="top-left">
+            <ul class="list-main">
+              <li><i class="ti-headphone-alt"></i>(+221) 33 868 13 65</li>
+              <li><i class="ti-email"></i>usinedigitale221@gmail.com</li>
+            </ul>
+          </div>
+          <!--/ End Top Left -->
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <!-- Top Right -->
+          <div class="right-content">
+            <ul class="list-main">
+              <li><i class="ti-location-pin"></i> Almadies lot 106 Résidende Kastelle
+              </li>
+              <li><i class="ti-alarm-clock"></i> <a href="#">24h/24h</a></li>
+              <li><i class="ti-user"></i> <a [routerLink]="['user-profile/id']">Mon compte</a></li>
+              <li *ngIf="!this.authService.isLoggedIn"><i class="ti-power-off"></i><a [routerLink]="['signIn']">Se connecter</a></li>
+              <li *ngIf="this.authService.isLoggedIn" ><i class="ti-power-off"></i><a (click)="logout()">Se deconnecter</a></li>
+            </ul>
+          </div>
+          <!-- End Top Right -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Topbar -->
+  <div class="middle-inner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-12">
+          <!-- Logo -->
+          <div class="logo">
+            <a href="#"><img src="/assets/logonoir.png" alt="logo"></a>
+          </div>
+          <!--/ End Logo -->
+          <!-- Search Form -->
+          <div class="search-top">
+            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+            <!-- Search Form -->
+            <div class="search-top">
+              <form class="search-form">
+                <input type="text" placeholder="Search here..." name="search">
+                <button value="search" type="submit"><i class="ti-search"></i></button>
+              </form>
+            </div>
+            <!--/ End Search Form -->
+          </div>
+          <!--/ End Search Form -->
+          <div class="mobile-nav"></div>
+        </div>
+        <div class="col-lg-8 col-md-7 col-12">
+          <div class="search-bar-top">
+            <div class="search-bar">
+              <select>
+                <option selected="selected">Catégories</option>
+                <option>Cat1</option>
+                <option>Cat2</option>
+                <option>Cat3</option>
+                <option>Cat4</option>
+                <option>Cat5</option>
+              </select>
+              <form>
+                <input name="search" placeholder="Chercher un pruduit....." type="search">
+                <button class="btnn"><i class="ti-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-12">
+          <div class="right-bar">
+            <!-- Search Form -->
+            <div class="sinlge-bar">
+              <a class="single-icon" [routerLink]="['']"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            </div>
+            <div class="sinlge-bar">
+              <a [routerLink]="['signIn']" class="single-icon"><i class="fa fa-user-circle-o"
+                  aria-hidden="true"></i></a>
+            </div>
+            <div class="sinlge-bar shopping">
+              <a href="cart" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+              <!-- Shopping Item -->
+              <div class="shopping-item">
+                <div class="dropdown-cart-header">
+                  <span>2 Items</span>
+                  <a href="#">Panier</a>
+                </div>
+                <ul class="shopping-list">
+                  <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a class="cart-img" href="#"><img
+                        src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
+                        alt="#"></a>
+                    <h4><a href="#">Lorem</a></h4>
+                    <p class="quantity">1x - <span class="amount">1000 Fcfa</span></p>
+                  </li>
+                  <li>
+                    <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                    <a class="cart-img" href="#"><img
+                        src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
+                        alt="#"></a>
+                    <h4><a href="#">Lorem</a></h4>
+                    <p class="quantity">1x - <span class="amount">1000 Fcfa</span></p>
+                  </li>
+                </ul>
+                <div class="bottom">
+                  <div class="total">
+                    <span>Total</span>
+                    <span class="total-amount">1000 Fcfa</span>
+                  </div>
+                  <a href="#" class="btn animate">Checkout</a>
+                </div>
+              </div>
+              <!--/ End Shopping Item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header Inner -->
+  <div class="header-inner">
+    <div class="container">
+      <div class="cat-nav-head">
+        <div class="row">
+          <div class="col-12">
+            <div class="menu-area">
+              <!-- Main Menu -->
+              <nav class="navbar navbar-expand-lg">
+                <div class="navbar-collapse">
+                  <div class="nav-inner">
+                    <ul class="nav main-menu menu navbar-nav">
+                      <li [routerLinkActive]="['active']"><a [routerLink]="['home']">ACCUEIL</a></li>
+                      <li [routerLinkActive]="['active']"><a [routerLink]="['products']">PRODUITS</a></li>
+                      <li [routerLinkActive]="['active']"><a (click)="openDialog()" >LISTE DE COMPATIBILITÉ</a></li>
+                      <li [routerLinkActive]="['active']"><a [routerLink]="['happyCustomer']">CLIENTS SATISFAITS</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <!--/ End Main Menu -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ End Header Inner -->
+</header>
+<!--/ End Header -->
