@@ -12,15 +12,10 @@ export class UserProfilComponent implements OnInit {
   currentUser: Object = {};
 
   constructor(
-    public authService: AuthService,
+
     private actRoute: ActivatedRoute
   ) {
-    let id = this.actRoute.snapshot.paramMap.get('id');
-    this.authService.getUserProfile(id).subscribe((res: { msg: Object; })=> {
-      this.currentUser = res.msg;
 
-      console.log(id)
-    })
   }
 
   ngOnInit() { }

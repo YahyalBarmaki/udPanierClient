@@ -19,12 +19,17 @@
 <div class="shopping-cart section">
   
   <div class="container">
-
+    
 
     <div class="row">
       <div class="col-12">
         <!-- Shopping Summery -->
+        
         <table class="table shopping-summery">
+          <div  class="text-center my-5" *ngIf="!carts">
+            <h4>Votre panier est vide</h4>
+            <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
+          </div>
           <thead>
             <tr class="main-hading">
               <th>PRODUCT</th>
@@ -37,17 +42,16 @@
           </thead>
           <tbody>
 
-            <tr *ngFor="let item of items; index as itemNo">
-
+            <tr *ngFor="let item of carts; index as itemNo">
+              
               <td class="image" data-title="No"><img
                   src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
                   alt="#"></td>
               <td class="product-des" data-title="Description">
                 <p class="product-name"><a href="#">Cart</a></p>
-                <p class="product-des">Lorem Ipsum is simply dummy text of the
-                  printing and typesetting industry. </p>
+                <p class="product-des">{{item.desc}}</p>
               </td>
-              <td class="price" data-title="Price"><span>{{item.price}}</span></td>
+              <td class="price" data-title="Price"><span>{{item.price | currency:'Fcfa '}}</span></td>
               <td class="qty" data-title="Qty">{{item.qtite}}
                 <!-- Input Order -->
                 <!--div class="input-group">
@@ -71,7 +75,7 @@
               </td>
               <td class="total-amount" data-title="Total"><span>{{item.price *
                   item.qtite}}</span></td>
-              <td (click)="onDelete(itemNo)"><i class="ti-trash remove-icon"></i></td>
+              <td ><i class="ti-trash remove-icon"></i></td>
             </tr>
           </tbody>
         </table>

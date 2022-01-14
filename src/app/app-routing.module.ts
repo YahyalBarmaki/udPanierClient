@@ -11,7 +11,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 
-import { AuthGuard } from "./shared/auth/auth.guard";
+import { AuthGuard } from "./shared/guard/auth.guard";
 
 
 
@@ -23,7 +23,7 @@ const routes: Routes = [
   //{ path: 'cart', component: CartComponent },
   //{ path: 'products', component: ProductsComponent },
   { path: 'admin-panel-home', component: HomeAdminPanelComponent },
-  { path: 'user-profile/:id', component: UserProfilComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: UserProfilComponent },
   //{ path: 'product/:id', component: DetailsProductComponent },
   { path: 'detailsProduct', component: DetailsProductComponent },
   { path: 'happyCustomer', component: HappyCustomersComponent },

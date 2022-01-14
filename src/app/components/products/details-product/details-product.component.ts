@@ -47,8 +47,8 @@ export class DetailsProductComponent implements OnInit {
     this.toastr.show('Ajout reussi', 'Message')
   }
   addToCart(product: ProductsEntreprise) {
-    this.cardService.addToCart(product);
-    //window.alert('Your product has been added to the cart!');
+    this.cardService.onAddProductToCart;
+
   }
   getProduct(id): void {
     this.productService.getProductById(id)

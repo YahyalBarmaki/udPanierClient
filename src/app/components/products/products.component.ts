@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ProductsEntreprise, ProductsParticulier } from 'src/app/models/products';
+import { ProductsEntreprise, ServerResponse } from 'src/app/models/products';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 
@@ -14,8 +14,7 @@ export class ProductsComponent implements OnInit {
   //productsEntreprises = productsEntreprises;
   productsList: ProductsEntreprise[] = [];
 
-  productsListP: ProductsParticulier[] = [];
-  productsData!: any;
+  productsData: ProductsEntreprise[] = [];
 
   constructor(private titleService: Title, private productService: ProductService
   ) {
@@ -31,8 +30,10 @@ export class ProductsComponent implements OnInit {
 
   }
   allProduct() {
-    this.productService.getProducts().subscribe(res => {
+    this.productService.getProducts().subscribe((res) => {
+      console.log(res)
       this.productsData = res
+      console.log(this.productsData)
     })
   }
 

@@ -11,6 +11,6 @@ export const environment = {
     storageBucket: "cart-37ca0.appspot.com",
     messagingSenderId: "620202546000",
     appId: "1:620202546000:web:428a40b5b82a569773d255"
-  }
+  },
+  endpoint: 'http://localhost:5000/product'
 };
-export const endpoint = 'http://localhost:8080/api/auth/';

@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserAuth } from './../../models/user';
+import { SocialUser } from 'angularx-social-login';
 
 const AUTH_API = 'http://localhost:5000/api/';
-/* const httpOptions = {
 
-  headers: new HttpHeaders().set('Content-Type', 'application/json')
-} */
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
+  /* auth = false
+  private user; */
+
+  // userData$= new BehaviorSubject<SocialUser>(null);
   [x: string]: any;
 
   currentUser = {};

@@ -2,26 +2,28 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ProductsEntreprise, ProductsParticulier } from 'src/app/models/products';
+import { ProductsEntreprise, ServerResponse } from 'src/app/models/products';
+import { environment } from 'src/environments/environment';
 
 
-const baseURL = 'http://localhost:5000/product'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  private baseURL = environment.endpoint
 
 
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get<any>(baseURL + '/all')
+    return this.http.get(this.baseURL + '/all')
       .pipe(map((res: any) => {
+        console.log(res)
         return res;
       }))
   }
-  getProductById(id): Observable<any> {
-    return this.http.get(`${baseURL}/${id}`);
+  getProductById(id: Number): Observable<ProductsEntreprise> {
+    return this.http.get<ProductsEntreprise>(this.baseURL + '/' + id);
   }
 }

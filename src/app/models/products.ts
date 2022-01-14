@@ -1,13 +1,13 @@
-export interface ProductsEntreprise {
-    _id: number;
-    title: string;
-    desc: string;
-    price: number;
-    qtite: number;
-    imageUrl: string;
+export class ProductsEntreprise {
+    _id!: number;
+    title!: string;
+    desc!: string;
+    price!: number;
+    qtite!: number;
+    imageUrl!: string;
 }
 
-export const ProductsEntreprise = [
+/* export const ProductsEntreprise = [
     {
         _id: 1,
         title: "Cart Entreprise",
@@ -40,4 +40,9 @@ export class ProductsParticulier {
         this.price = price;
         this.imageUrl = imageUrl;
     }
-}
+
+} */
+export interface ServerResponse {
+    productsData: ProductsEntreprise[];
+    count: number;
+};
