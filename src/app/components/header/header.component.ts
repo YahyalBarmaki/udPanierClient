@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {CompatibilityComponent} from '../compatibility/compatibility.component';
+import { CompatibilityComponent } from '../compatibility/compatibility.component';
 import { AuthService } from '../../shared/auth/auth.service';
+import { CardService } from 'src/app/shared/services/card.service';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,12 @@ import { AuthService } from '../../shared/auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  public totalItem: number = 0;
   constructor(
+    private cardService: CardService,
     public authService: AuthService,
     public dialog: MatDialog
-    ) { }
+  ) { }
   logout() {
     this.authService.doLogout()
   }
@@ -27,6 +29,10 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.cardService.getProducts()
+      .subscribe(res => {
+        this.totalItem = res.length;
+      })
   }
 
 }

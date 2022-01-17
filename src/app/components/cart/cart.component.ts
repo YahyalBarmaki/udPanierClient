@@ -15,8 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CartComponent implements OnInit {
   cartDatas!: any;
-  //items = this.cardService.getItems();
-  //items = this.cardService.getItems();
+  public products: any = [];
   @Input() _id!: number;
   public cartItemLists: any = [];
   public grandTotal !: number;
@@ -40,28 +39,37 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     /* this.items.forEach(item => {
       this.cartTotal += (item.qtite * item.price)
-    }) */
+    }) 
 
     this.dataService.cart.subscribe(a => this.carts = a);
     console.log(this.carts)
-    this.getTotal();
+    
 
     /* this.productService.getProducts()
       .subscribe(res => {
         this.cartItemLists = res;
         this.grandTotal = this.cardService.getTotalPrice();
       }) */
+    this.cardService.getProducts()
+      .subscribe(res => {
+        this.products = res;
+        console.log(this.products)
 
+        this.getTotal();
+      })
+    this.grandTotal = this.getTotal()
   }
   getCartProductItems() {
     this.carts = JSON.parse(localStorage.getItem('Cart') || '{}');
   }
 
-  onRemoveProductsFromCart(productId: number) {
-    this.carts = this.carts.filter(a => a._id != productId);
-    localStorage.setItem('Cart', JSON.stringify(this.carts));
-    this.dataService.updateCartItemCount(this.carts.length);
-    this.getTotal();
+
+  removeItem(item: any) {
+    this.cardService.removeCartItem(item);
+  }
+
+  emptycart() {
+    this.cardService.removeAllCart();
   }
 
   onUpdateQuantity(type, productId) {
@@ -81,11 +89,13 @@ export class CartComponent implements OnInit {
     this.getTotal();
   }
 
-  getTotal() {
+  getTotal(): number {
     this.total = 0;
-    this.carts.forEach((element) => {
+    this.products.forEach((element) => {
       this.total = this.total + (element.price * element.qtite);
+      console.log(this.total)
     })
+    return this.total;
   }
 
 

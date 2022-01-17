@@ -20,71 +20,86 @@
   
   <div class="container">
     
+<ng-container *ngIf="products.length != 0">
+  <div class="row">
+    <div class="col-12">
+      <!-- Shopping Summery -->
+      <table class="table shopping-summery">
+        <thead>
+          <tr class="main-hading">
+            <th>PRODUCT</th>
+            <th>NAME</th>
+            <th class="text-center">UNIT PRICE</th>
+            <th class="text-center">QUANTITY</th>
+            <th class="text-center">TOTAL</th>
+            <th class="text-center"><i class="ti-trash remove-icon"></i></th>
+          </tr>
+        </thead>
+        <tbody>
 
-    <div class="row">
-      <div class="col-12">
-        <!-- Shopping Summery -->
-        
-        <table class="table shopping-summery">
-          <div  class="text-center my-5" *ngIf="!carts">
-            <h4>Votre panier est vide</h4>
-            <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
-          </div>
-          <thead>
-            <tr class="main-hading">
-              <th>PRODUCT</th>
-              <th>NAME</th>
-              <th class="text-center">UNIT PRICE</th>
-              <th class="text-center">QUANTITY</th>
-              <th class="text-center">TOTAL</th>
-              <th class="text-center"><i class="ti-trash remove-icon"></i></th>
-            </tr>
-          </thead>
-          <tbody>
+          <tr *ngFor="let item of products; let i =index">
+            
+            <td class="image" data-title="No"><img
+                src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
+                alt="#"></td>
+            <td class="product-des" data-title="Description">
+              <p class="product-name"><a href="#">Cart</a></p>
+              <p class="product-des">{{item.desc}}</p>
+            </td>
+            <td class="price" data-title="Price"><span>{{item.price | currency:'Fcfa '}}</span></td>
+            <td class="qty" data-title="Qty">{{item.qtite}}
+              <!-- Input Order -->
+              <!--div class="input-group">
+                <div class="button minus">
+                  <button type="button" class="btn btn-primary btn-number"
+                    disabled="disabled" data-type="minus"
+                    data-field="quant[1]">
+                    <i class="ti-minus"></i>
+                  </button>
+                </div>
+                <input type="text" name="quant[1]" class="input-number"
+                  data-min="1" data-max="100" value="1">
+                <div class="button plus">
+                  <button type="button" class="btn btn-primary btn-number"
+                    data-type="plus" data-field="quant[1]">
+                    <i class="ti-plus"></i>
+                  </button>
+                </div>
+              </div-->
+              <!--/ End Input Order -->
+            </td>
+            <td class="total-amount" data-title="Total"><span>{{item.price *
+                item.qtite}}</span></td>
+            <td (click)="removeItem(item)"><i class="ti-trash remove-icon"></i></td>
+          </tr>
+          <tr>
 
-            <tr *ngFor="let item of carts; index as itemNo">
-              
-              <td class="image" data-title="No"><img
-                  src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
-                  alt="#"></td>
-              <td class="product-des" data-title="Description">
-                <p class="product-name"><a href="#">Cart</a></p>
-                <p class="product-des">{{item.desc}}</p>
-              </td>
-              <td class="price" data-title="Price"><span>{{item.price | currency:'Fcfa '}}</span></td>
-              <td class="qty" data-title="Qty">{{item.qtite}}
-                <!-- Input Order -->
-                <!--div class="input-group">
-                  <div class="button minus">
-                    <button type="button" class="btn btn-primary btn-number"
-                      disabled="disabled" data-type="minus"
-                      data-field="quant[1]">
-                      <i class="ti-minus"></i>
-                    </button>
-                  </div>
-                  <input type="text" name="quant[1]" class="input-number"
-                    data-min="1" data-max="100" value="1">
-                  <div class="button plus">
-                    <button type="button" class="btn btn-primary btn-number"
-                      data-type="plus" data-field="quant[1]">
-                      <i class="ti-plus"></i>
-                    </button>
-                  </div>
-                </div-->
-                <!--/ End Input Order -->
-              </td>
-              <td class="total-amount" data-title="Total"><span>{{item.price *
-                  item.qtite}}</span></td>
-              <td ><i class="ti-trash remove-icon"></i></td>
-            </tr>
-          </tbody>
-        </table>
-        <!--/ End Shopping Summery -->
-      </div>
+            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
+            <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
+            <td><button class="btn btn-success" routerLink="/checkout">Checkout</button></td>
+            <td><strong>Grand Total : ${{grandTotal}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <!--/ End Shopping Summery -->
     </div>
-    <div class="row">
+  </div>
+</ng-container >
+<ng-container *ngIf="products.length == 0">
+  <div class="container">
+    
+    <div class="center">
+        <img src="https://cdn3.iconfinder.com/data/icons/shopping-and-ecommerce-29/90/empty_cart-512.png" alt="">
+        <h4>Your cart is empty!</h4>
+        <h6>Add item to it now</h6>
+        <button routerLink="/products" class="btn btn-primary">Shop Now</button>
+    </div>
+</div>
+</ng-container>
+    
+    <!--<div class="row">
       <div class="col-12">
-        <!-- Total Amount -->
+        <!-- Total Amount 
         <div class="total-amount">
           <div class="row">
             <div class="col-lg-8 col-md-5 col-12">
@@ -98,7 +113,7 @@
             <div class="col-lg-4 col-md-7 col-12">
               <div class="right">
                 <ul>
-                  <li>Cart Subtotal<span>{{cartTotal}}</span></li>
+                  <li>Cart Subtotal<span></span></li>
                   <li>Shipping<span>Free</span></li>
                   <li>You Save<span>1000 Fcfa</span></li>
                   <li class="last">Vous Payez<span>1000 Fcfa</span></li>
@@ -112,9 +127,9 @@
             </div>
           </div>
         </div>
-        <!--/ End Total Amount -->
-      </div>
-    </div>
+        <!--/ End Total Amount
+      </div> 
+    </div>-->
   </div>
 </div>
 <!--/ End Shopping Cart -->

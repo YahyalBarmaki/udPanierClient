@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeAdminPanelComponent } from './components/admin-panel/home-admin-panel/home-admin-panel.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HappyCustomersComponent } from './components/happy-customers/happy-customers.component';
 import { HomeComponent } from './components/home/home.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   //{ path: 'product/:id', component: DetailsProductComponent },
   { path: 'detailsProduct', component: DetailsProductComponent },
   { path: 'happyCustomer', component: HappyCustomersComponent },
-  { path: 'dashboards', component: DashboardComponent }
+  { path: 'dashboards', component: DashboardComponent },
+  { path: 'checkout', component: CheckoutComponent }
 ];
 
 

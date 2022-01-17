@@ -1,23 +1,50 @@
 <div class="container-fluid">
 
-    <div class="custom-card">
+    <div *ngIf="userDetails">
+        <div class="custom-card">
 
-        <div class="text-center mb-4">
-            <img [src]="userDetails?.photoUrl" alt="user-avatar"
-                class="user-avatar" />
+            <div class="text-center mb-4">
+                <img [src]="userDetails?.photoUrl" alt="user-avatar"
+                    class="user-avatar" />
+            </div>
+
+            <p class="mb-2">
+                <span class="font-weight-bold">Name: </span>{{userDetails?.name}}
+            </p>
+
+            <p class="mb-2">
+                <span class="font-weight-bold">Email: </span>{{userDetails?.email}}
+            </p>
+
+            <button class="btn btn-block btn-danger mt-4" (click)="signOut()">Sign
+                out</button>
+
         </div>
-
-        <p class="mb-2">
-            <span class="font-weight-bold">Name: </span>{{userDetails?.name}}
-        </p>
-
-        <p class="mb-2">
-            <span class="font-weight-bold">Email: </span>{{userDetails?.email}}
-        </p>
-
-        <button class="btn btn-block btn-danger mt-4" (click)="signOut()">Sign
-            out</button>
-
     </div>
+
+    <div *ngIf="currentUser">
+        <div class="custom-card">
+
+            <div class="text-center mb-4">
+                <img [src]="currentUser?.photoUrl" alt="user-avatar"
+                    class="user-avatar" />
+            </div>
+
+            <p class="mb-2">
+                <span class="font-weight-bold">Name: </span>{{currentUser?.name}}
+            </p>
+
+            <p class="mb-2">
+                <span class="font-weight-bold">Email: </span>{{currentUser?.email}}
+            </p>
+
+            <button class="btn btn-block btn-danger mt-4" (click)="signOut()">Sign
+                out</button>
+
+        </div>
+    </div>
+
+
+
 
 </div>

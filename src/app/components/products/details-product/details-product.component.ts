@@ -4,6 +4,7 @@ import { CardService } from 'src/app/shared/services/card.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class DetailsProductComponent implements OnInit {
   @ViewChild('quantity') quantityInput;
   currentProduct: ProductsEntreprise | undefined;
   currentproduct: any;
+  productsList: any;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -33,12 +35,24 @@ export class DetailsProductComponent implements OnInit {
       console.log(this.currentproduct)
       //console.log(res, 'res==>')
     }))
-
-    this.items.forEach(item => {
+    this.productService.getProducts().pipe(
+      map((res) => {
+        this.productsList = res;
+      })
+    )
+    /* this.items.forEach(item => {
 
       console.log(item.qtite)
 
     })
+ */
+    this.productsList.forEach((a: any) => {
+      if (a.category === "women's clothing" || a.category === "men's clothing") {
+        a.category = "fashion"
+      }
+      Object.assign(a, { qtite: 1, total: a.price });
+    });
+    console.log(this.productsList)
 
     //console.log(this.currentProduct)
     //this.getProduct(this.route.snapshot.paramMap.get('id'));
@@ -46,8 +60,8 @@ export class DetailsProductComponent implements OnInit {
   alertSuccess() {
     this.toastr.show('Ajout reussi', 'Message')
   }
-  addToCart(product: ProductsEntreprise) {
-    this.cardService.onAddProductToCart;
+  addToCart(item: any) {
+    this.cardService.addtoCart(item);
 
   }
   getProduct(id): void {

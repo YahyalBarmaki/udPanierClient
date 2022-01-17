@@ -34,6 +34,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, So
  * Toastr alert
  */
 import { ToastrModule } from 'ngx-toastr';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ToastrModule } from 'ngx-toastr';
     ProductsItemComponent,
     CartItemComponent,
     DetailsProductComponent,
+    CheckoutComponent,
 
   ],
   imports: [

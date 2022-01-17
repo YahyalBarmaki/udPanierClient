@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { GoogleLoginProvider, SocialAuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { TokenStorageService } from 'src/app/shared/auth/token-storage.service';
 import { UserAuth } from './../../models/user';
+import { first } from 'rxjs/operators';
 /**
  * Social login
  */
@@ -17,7 +18,9 @@ import { UserAuth } from './../../models/user';
 })
 export class SignInComponent implements OnInit {
 
-
+  public email!: string;
+  public password!: string;
+  public error!: string;
   isLoggedIn = false;
   errorMessage = '';
   roles: string[] = [];
@@ -36,7 +39,6 @@ export class SignInComponent implements OnInit {
     private titleService: Title,
     public fb: FormBuilder,
     private auth_service: AuthService,
-    private tokenStorage: TokenStorageService,
     private authService: SocialAuthService,
     public router: Router
   ) {
@@ -49,13 +51,13 @@ export class SignInComponent implements OnInit {
   loginWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
       localStorage.setItem('google_auth', JSON.stringify(data));
-      this.router.navigateByUrl('/dashboards').then();
+      this.router.navigateByUrl('/profile').then();
     });
   }
   loginWithFacebook() {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
       localStorage.setItem('facebook_auth', JSON.stringify(data));
-      this.router.navigateByUrl('/dashboards').then();
+      this.router.navigateByUrl('/profile').then();
     });
   }
 
@@ -66,19 +68,26 @@ export class SignInComponent implements OnInit {
   login() {
     console.log(this.signinForm.value);
     if (this.signinForm.valid) {
-      this.auth_service.signIn(this.signinForm.value).subscribe(
-        data => {
-          console.log(data)
-          localStorage.setItem('token', data.toString());
-          //console.log(localStorage.getItem('token'));
-          this.router.navigate(['/home']);
+      this.auth_service.signIn(this.signinForm.value)
+        .subscribe((res) => {
+          console.log(res)
+          const jsonData = JSON.stringify(res)
+          localStorage.setItem("access_token", jsonData);
+          console.log(jsonData)
+          this.router.navigate(['/profile']);
         },
-        err => {
-          this.errorMessage = err.error.message;
-          console.log(this.errorMessage)
-        }
-      );
+          err => {
+            this.errorMessage = err.error.message;
+            console.log(this.errorMessage);
+
+          }
+        )
     }
+    else {
+      alert("Password ou mail invalid")
+      this.router.navigate(['/signIn']);
+    }
+
   }
 
 }

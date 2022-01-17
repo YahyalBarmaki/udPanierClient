@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductsEntreprise } from 'src/app/models/products';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { CardService } from 'src/app/shared/services/card.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-detail-product',
@@ -10,7 +11,7 @@ import { CardService } from 'src/app/shared/services/card.service';
 })
 export class DetailProductComponent implements OnInit {
 
-  productsList: ProductsEntreprise[] = [];
+  productsList: any;
 
   @Input()
   product: any;
@@ -20,11 +21,11 @@ export class DetailProductComponent implements OnInit {
     private cartService: CardService) { }
 
   ngOnInit(): void {
-    /*this.productsList = this.productService.getProductsEntreprise()
-    console.log(this.productsList);*/
+
+
   }
-  addToCart(product: ProductsEntreprise) {
+  /* addToCart(product: ProductsEntreprise) {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
-  }
+  } */
 }

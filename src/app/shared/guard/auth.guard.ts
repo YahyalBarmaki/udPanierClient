@@ -19,6 +19,9 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+    if (localStorage.getItem('access_token')) {
+      return true;
+    }
 
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } })
     return false;

@@ -9,20 +9,11 @@ import { SocialUser } from 'angularx-social-login';
 
 const AUTH_API = 'http://localhost:5000/api/';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  /* auth = false
-  private user; */
-
-  // userData$= new BehaviorSubject<SocialUser>(null);
-  [x: string]: any;
-
-  currentUser = {};
 
   constructor(
     private http: HttpClient,
@@ -38,15 +29,13 @@ export class AuthService {
   }
 
 
-  /* signIn(userData: User): Observable<any> {
-    return this.http.post(AUTH_API + 'login', httpOptions);
-  } */
-
   signIn(body: any) {
     return this.http.post(AUTH_API + 'login', body, {
       observe: 'body'
-    });
+    })
+
   }
+
 
   getToken() {
     return localStorage.getItem('access_token');
@@ -58,22 +47,23 @@ export class AuthService {
   }
 
   doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
+    /* let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['signIn']);
-    }
+    } */
+
+    // window.sessionStorage.clear();
   }
 
-  // User profile
-  // getUserProfile(id:any): Observable<any> {
-  //   let api = `${this.endpoint}/user-profile/${id}`;
-  //   return this.http.get(api, { headers: this.headers }).pipe(
-  //     map((res: any) => {
-  //       return res || {}
-  //     }),
-  //     catchError(this.handleError)
-  //   )
-  // }
+  /* public getUser(): any {
+    const user = localStorage.getItem('access_token');
+    console.log(user)
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return {};
+  } */
 
   // Error
   handleError(error: HttpErrorResponse) {

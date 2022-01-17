@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from './../../shared/auth/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-profil',
@@ -9,14 +9,37 @@ import { AuthService } from './../../shared/auth/auth.service';
 })
 export class UserProfilComponent implements OnInit {
 
-  currentUser: Object = {};
-
+  public userDetails: any;
+  public currentUser: any;
   constructor(
-
-    private actRoute: ActivatedRoute
+    private router: Router,
+    //private token: AuthService
   ) {
+  }
+
+  ngOnInit(): void {
+    const storageSocial = localStorage.getItem('google_auth');
+
+    const currentUserAccess = localStorage.getItem('access_token');
+    if (storageSocial) {
+      this.userDetails = JSON.parse(storageSocial);
+    }
+    if (currentUserAccess) {
+      this.currentUser = JSON.parse(currentUserAccess)
+
+    }
 
   }
 
-  ngOnInit() { }
+
+  signOut(): void {
+    let removeTokenSocial = localStorage.removeItem('google_auth');
+    let removeTokenUserBD = localStorage.removeItem('access_token');
+    if (removeTokenSocial == null || removeTokenUserBD == null) {
+
+      this.router.navigate(['/signIn']);
+    }
+
+
+  }
 }
