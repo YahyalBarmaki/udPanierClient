@@ -16,14 +16,15 @@ export class CartIconComponent implements OnInit {
     public authService: AuthService,) { }
 
   ngOnInit(): void {
-    this.cardService.getProducts()
+    /* this.cardService.getProducts()
       .subscribe(res => {
         this.carts = res
         this.totalItem = res.length;
         this.getTotal();
         console.log(this.totalItem)
       })
-    this.getTotal();
+    this.getTotal(); */
+    this.numbetItem();
   }
   getTotal(): number {
     this.total = 0;
@@ -32,6 +33,13 @@ export class CartIconComponent implements OnInit {
       console.log(this.total)
     })
     return this.total;
+  }
+  numbetItem(){
+    if(localStorage.getItem('Cart') != null){
+      var cpt = JSON.parse(localStorage.getItem('Cart') || "") ;
+      console.log("first");
+      console.log(cpt);
+    }
   }
   }
 

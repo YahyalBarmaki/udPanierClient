@@ -27,7 +27,7 @@ export class CardService {
   constructor(
     private toast: ToastrService
   ) {
-    //this.cartItemList = JSON.parse(localStorage.getItem('cart') || '[]');
+   // this.cartItemList = JSON.parse(localStorage.getItem('cart') || '[]');
   }
   
   initLocalStorage(){
@@ -91,8 +91,9 @@ export class CardService {
     const cart: [] = this.cartItemList;
     if (!cart) {
       this.cartItemList =  []
+      JSON.parse(localStorage.getItem('Cart')|| '')
     };
-    localStorage.setItem('cart', JSON.stringify(this.cartItemList)); // sync the data
+    localStorage.setItem('cart', JSON.stringify(cart)); // sync the data
 
   }
 }

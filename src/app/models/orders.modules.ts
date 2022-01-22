@@ -10,6 +10,6 @@ import { CardService } from "../shared/services/card.service";
 })
 export class OrdersModule {
     constructor(private cartSerive : CardService){
-            cartSerive.initLocalStorage()
+            //cartSerive.syncItems()
     }
 }

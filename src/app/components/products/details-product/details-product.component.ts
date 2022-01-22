@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Cart, CartItem } from 'src/app/models/cart';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class DetailsProductComponent implements OnInit {
     private productService: ProductService,
     private route: ActivatedRoute,
     private cardService: CardService,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private toast: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -47,22 +49,38 @@ export class DetailsProductComponent implements OnInit {
 
   }
  
+  itemCarts:any = []
   addToCart(item: any) {
-    this.cardService.addtoCart(item);
+    //this.cardService.addtoCart(item);
+    console.log(item);
 
+    let cartDataNull = localStorage.getItem('Cart')
+    if (cartDataNull == null) {
+      let storeDataGet:any= []
+      storeDataGet.push(item);
+      localStorage.setItem('Cart',JSON.stringify(storeDataGet))
+    }else{
+      var _id = item._id;
+      let index: number = -1;
+      this.itemCarts =JSON.parse(localStorage.getItem('Cart')|| '')
+      for (let i = 0; i < this.itemCarts.length; i++) {
+            if (parseInt(_id) === parseInt(this.itemCarts[i]._id)) {
+                this.itemCarts[i].qtite = item.qtite
+            }
+           /*  index = i;
+            break; */
+      }
+      if (index == -1) {
+        console.log(index);
+        this.itemCarts.push(item);
+        localStorage.setItem('Cart',JSON.stringify(this.itemCarts));
+      }
+      else{
+        localStorage.setItem('Cart',JSON.stringify(this.itemCarts));
+      }
+    }
   }
   
-  /**
-   * addProductToCart
-   */
-  /*  addProductToCart(){
-     const cartItem: CartItem = {
-       _id: this.product._id,
-       qtite: 1
-     }
-     console.log(cartItem)
-     this.cardService.setCartItem(cartItem)
-   } */
 
   getProduct(id): void {
     this.productService.getProductById(id)
@@ -76,9 +94,22 @@ export class DetailsProductComponent implements OnInit {
         });
   }
 
-  plus() {
-
-    let value = parseInt(this.quantityInput.nativeElement.value);
+  plus(prod:any) {
+    if (prod.qtite!=10) {
+      prod.qtite +=1;
+    console.log(prod.qtite);
+    }else{
+      this.toast.error('Le maximum de quantité requis est 10','Error Item',{
+        progressBar: true,
+        progressAnimation: 'increasing',
+        positionClass:'toast-top-right',
+        timeOut: 1500
+      }
+        
+      )
+    }
+    
+    /* let value = parseInt(this.quantityInput.nativeElement.value);
     console.log(value)
     if (this.currentproduct.qtite >= 1) {
       value++;
@@ -86,21 +117,23 @@ export class DetailsProductComponent implements OnInit {
       return;
     }
 
-    this.quantityInput.nativeElement.value = value.toString();
+    this.quantityInput.nativeElement.value = value.toString(); */
   }
-  moins() {
+  moins(prod:any) {
+    if (prod.qtite!=1) {
+      prod.qtite -=1;
+    console.log(prod.qtite);
+    }else{
 
-    let value = parseInt(this.quantityInput.nativeElement.value);
-    if (this.currentproduct.qtite > 0) {
-      value--;
-
-      if (value <= 0) {
-        value = 0;
-      }
-    } else {
-      return;
+      this.toast.error('Le manimum de quantité requis est 1','Error Item',{
+        progressBar: true,
+        progressAnimation: 'increasing',
+        positionClass:'toast-top-right',
+        timeOut: 1500
+    })
+      
     }
-    this.quantityInput.nativeElement.value = value.toString();
+   
   }
 
   /**
