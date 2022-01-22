@@ -11,12 +11,12 @@ export class DataService {
   currentMessage = this.message.asObservable();
   private ItemCount = new BehaviorSubject(0);
   count: Observable<number> = this.ItemCount.asObservable();
-  private shoppingCart = new BehaviorSubject([]);
+  public shoppingCart = new BehaviorSubject<any>([]);
   cart = this.shoppingCart.asObservable();
   constructor() {
     let isEmptyCart: boolean = localStorage.getItem('Cart') == null;
     this.updateCartItemCount(isEmptyCart ? 0 : JSON.parse(localStorage.getItem('Cart') || '{}').length);
-    // this.updateShoppingCart(isEmptyCart ? [] :JSON.parse(localStorage.getItem('Cart')||'{}'));
+    this.updateShoppingCart(isEmptyCart ? [] : JSON.parse(localStorage.getItem('Cart') || '{}'));
   }
 
   changeMessage(message: string) {
@@ -27,8 +27,8 @@ export class DataService {
     this.ItemCount.next(count);
   }
 
-  /*  updateShoppingCart(cartItems: ProductsEntreprise[]){
-     this.shoppingCart.next(cartItems);
-   } */
+  updateShoppingCart(cartItems: any) {
+    this.shoppingCart.next(cartItems);
+  }
 
 }

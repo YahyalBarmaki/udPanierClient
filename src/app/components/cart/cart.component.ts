@@ -5,7 +5,6 @@ import { ProductsEntreprise } from 'src/app/models/products';
 import { CardService } from 'src/app/shared/services/card.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -29,7 +28,6 @@ export class CartComponent implements OnInit {
   constructor(private titleService: Title,
     private cardService: CardService,
     private router: Router,
-    private toastr: ToastrService,
     private dataService: DataService,
     private productService: ProductService) {
     this.titleService.setTitle("Cart");
@@ -37,27 +35,18 @@ export class CartComponent implements OnInit {
   cartTotal = 0;
   quantite = 1;
   ngOnInit(): void {
-    /* this.items.forEach(item => {
-      this.cartTotal += (item.qtite * item.price)
-    }) 
 
-    this.dataService.cart.subscribe(a => this.carts = a);
-    console.log(this.carts)
-    
+    /* this.dataService.cart.subscribe(a => this.products = a);
+    console.log(this.products) */
 
-    /* this.productService.getProducts()
-      .subscribe(res => {
-        this.cartItemLists = res;
-        this.grandTotal = this.cardService.getTotalPrice();
-      }) */
     this.cardService.getProducts()
       .subscribe(res => {
         this.products = res;
         console.log(this.products)
-
         this.getTotal();
       })
-    this.grandTotal = this.getTotal()
+    this.getTotal()
+
   }
   getCartProductItems() {
     this.carts = JSON.parse(localStorage.getItem('Cart') || '{}');
@@ -92,7 +81,7 @@ export class CartComponent implements OnInit {
   getTotal(): number {
     this.total = 0;
     this.products.forEach((element) => {
-      this.total = this.total + (element.price * element.qtite);
+      this.total += (element.price * element.qtite);
       console.log(this.total)
     })
     return this.total;

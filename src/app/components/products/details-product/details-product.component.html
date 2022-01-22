@@ -77,21 +77,33 @@
                                             <button type="button" class="btn
                                                 btn-primary btn-number"
                                                 data-type="minus"
-                                                (click)="moins()">
+                                                [disabled]="currentproduct.qtite == 1"
+                                                (click)="onUpdateQuantity(1,  currentproduct._id)">
                                                 <i class="ti-minus"></i>
                                             </button>
                                         </div>
-                                        <input #quantity type="number"
+                                        <!--<input #quantity type="number"
                                             class="input-number"
                                             [max]="currentproduct?.qtite"
                                             [min]="currentproduct?.qtite >= 1 ? currentproduct?.qtite : 0"
                                             readonly
-                                            value="{{currentproduct?.qtite >= 1 ? 1 : 0}}">
+                                            value="{{currentproduct?.qtite }}">-->
+                                            <input 
+                                            type="number" 
+                                            step="1" 
+                                            max="99" 
+                                            min="1" 
+                                            [value]="currentproduct.qtite" 
+                                            title="Qty" 
+                                            class="input-number"
+                                            size="4"
+                                            >
                                         <div class="button plus">
                                             <button type="button" class="btn
                                                 btn-primary btn-number"
+                                                
                                                 data-type="plus"
-                                                (click)="plus()">
+                                                (click)="onUpdateQuantity(0, currentproduct._id)">
                                                 <i class="ti-plus"></i>
                                             </button>
                                         </div>
@@ -100,7 +112,7 @@
                                 </div>
                                 <div class="add-to-cart">
 
-                                    <a routerLink="/cart" class="btn"
+                                    <a  class="btn"
                                         (click)="addToCart(currentproduct)">Ajouter
                                         au panier</a>
                                     <a href="#" class="btn min"><i

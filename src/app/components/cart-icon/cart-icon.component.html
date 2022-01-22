@@ -1,0 +1,44 @@
+<div class="sinlge-bar shopping">
+    <a href="cart" class="single-icon"><i class="ti-bag"></i> <span
+            class="total-count">{{totalItem}}</span></a>
+    <!-- Shopping Item -->
+    <div class="shopping-item">
+        <div *ngIf="carts.length != 0">
+            <div class="dropdown-cart-header">
+                <span>{{totalItem}} Items</span>
+                <a href="#">Panier</a>
+            </div>
+            <ul class="shopping-list" *ngFor="let cart of carts">
+                <li>
+                    <a href="#" class="remove" title="Remove this item"><i
+                            class="fa fa-remove"></i></a>
+                    <a class="cart-img" href="#"><img
+                            src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
+                            alt="#"></a>
+                    <h4><a href="#">{{cart.title}}</a></h4>
+                    <p class="quantity">{{cart.qtite}}x - <span
+                            class="amount">{{cart.price
+                            |
+                            currency: 'Fcfa '}}</span></p>
+                </li>
+            </ul>
+            <div class="bottom">
+                <div class="total">
+                    <span>Total</span>
+                    <span class="total-amount">{{getTotal()}} : 'Fcfa '</span>
+                </div>
+                <a routerLink="/checkout" class="btn animate">Checkout</a>
+            </div>
+        </div>
+        <div *ngIf="carts.length == 0">
+            <img
+                src="https://naukariemployment.com/assets/images/emptycart.png"
+                alt="">
+            <div class="col-md-12 text-center">
+                <button routerLink="/products" class="btn btn-primary">Shop
+                    Now</button>
+            </div>
+        </div>
+    </div>
+    <!--/ End Shopping Item -->
+</div>

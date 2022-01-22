@@ -42,7 +42,3 @@ export class ProductsParticulier {
     }
 
 } */
-export interface ServerResponse {
-    productsData: ProductsEntreprise[];
-    count: number;
-};

@@ -35,6 +35,9 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, So
  */
 import { ToastrModule } from 'ngx-toastr';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrdersModule } from './models/orders.modules';
+import { CartIconComponent } from './components/cart-icon/cart-icon.component';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +60,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CartItemComponent,
     DetailsProductComponent,
     CheckoutComponent,
+    CartIconComponent,
 
   ],
   imports: [
@@ -73,10 +77,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    OrdersModule,
     GraphQLModule,
-    ToastrModule.forRoot({
-      timeOut: 1000
-    })
+    ToastrModule.forRoot()
   ],
   providers: [
     {

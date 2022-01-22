@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ProductsEntreprise, ServerResponse } from 'src/app/models/products';
+import { ProductsEntreprise } from 'src/app/models/products';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 
