@@ -1,14 +1,14 @@
 <div class="sinlge-bar shopping">
     <a href="cart" class="single-icon"><i class="ti-bag"></i> <span
-            class="total-count">{{totalItem}}</span></a>
+            class="total-count">{{cartItem}}</span></a>
     <!-- Shopping Item -->
     <div class="shopping-item">
-        <div *ngIf="carts.length != 0">
+        <div *ngIf="cartItemArray.length != 0">
             <div class="dropdown-cart-header">
-                <span>{{totalItem}} Items</span>
+                <span>{{cartItem}} Items</span>
                 <a href="#">Panier</a>
             </div>
-            <ul class="shopping-list" *ngFor="let cart of carts">
+            <ul class="shopping-list" *ngFor="let cart of cartItemArray">
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i
                             class="fa fa-remove"></i></a>
@@ -30,7 +30,7 @@
                 <a routerLink="/checkout" class="btn animate">Checkout</a>
             </div>
         </div>
-        <div *ngIf="carts.length == 0">
+        <div *ngIf="cartItemArray.length == 0">
             <img
                 src="https://naukariemployment.com/assets/images/emptycart.png"
                 alt="">

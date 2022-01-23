@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ProductsEntreprise } from 'src/app/models/products';
 import { CardService } from 'src/app/shared/services/card.service';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -20,6 +21,7 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   productId!: Number;
   qtite!: number;
+  cartItemArray:any= [];
 
   carts: ProductsEntreprise[] = [];
   total: number = 0;
@@ -29,7 +31,9 @@ export class CartComponent implements OnInit {
     private cardService: CardService,
     private router: Router,
     private dataService: DataService,
-    private productService: ProductService) {
+    private productService: ProductService,
+    private toast: ToastrService
+    ) {
     this.titleService.setTitle("Cart");
   }
   cartTotal = 0;
@@ -47,6 +51,8 @@ export class CartComponent implements OnInit {
       })
     this.getTotal()
 
+    this.cartFunction()
+
   }
   getCartProductItems() {
     this.carts = JSON.parse(localStorage.getItem('Cart') || '{}');
@@ -54,7 +60,8 @@ export class CartComponent implements OnInit {
 
 
   removeItem(item: any) {
-    this.cardService.removeCartItem(item);
+    console.log(item);
+    //this.cardService.removeCartItem(item);
   }
 
   emptycart() {
@@ -80,7 +87,7 @@ export class CartComponent implements OnInit {
 
   getTotal(): number {
     this.total = 0;
-    this.products.forEach((element) => {
+    this.cartItemArray.forEach((element) => {
       this.total += (element.price * element.qtite);
       console.log(this.total)
     })
@@ -114,4 +121,42 @@ export class CartComponent implements OnInit {
   }*/
 
 
+cartFunction(){
+  if (localStorage.getItem('Cart')) {
+    this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '') ;
+    console.log(this.cartItemArray);
+  } 
+}
+
+plus(prod:any) {
+  if (prod.qtite!=10) {
+    prod.qtite +=1;
+  console.log(prod.qtite);
+  }else{
+    this.toast.error('Le maximum de quantité requis est 10','Error Item',{
+      progressBar: true,
+      progressAnimation: 'increasing',
+      positionClass:'toast-top-right',
+      timeOut: 1500
+    }
+      
+    )
+  }
+}
+moins(prod:any) {
+  if (prod.qtite!=1) {
+    prod.qtite -=1;
+  console.log(prod.qtite);
+  }else{
+
+    this.toast.error('Le manimum de quantité requis est 1','Error Item',{
+      progressBar: true,
+      progressAnimation: 'increasing',
+      positionClass:'toast-top-right',
+      timeOut: 1500
+  })
+    
+  }
+ 
+}
 }

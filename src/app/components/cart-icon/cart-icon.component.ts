@@ -12,19 +12,18 @@ export class CartIconComponent implements OnInit {
   carts: any = [];
   total: number = 0;
   cartTotal = 0;
+  cartItemArray:any= [];
   constructor(private cardService: CardService,
-    public authService: AuthService,) { }
+    public authService: AuthService,) {
+      this.cardService.cartSubject.subscribe((data)=>{
+        this.cartItem = data;
+      });
+     }
 
   ngOnInit(): void {
-    /* this.cardService.getProducts()
-      .subscribe(res => {
-        this.carts = res
-        this.totalItem = res.length;
-        this.getTotal();
-        console.log(this.totalItem)
-      })
-    this.getTotal(); */
+    
     this.numbetItem();
+    this.cartFunction();
   }
   getTotal(): number {
     this.total = 0;
@@ -34,13 +33,22 @@ export class CartIconComponent implements OnInit {
     })
     return this.total;
   }
+  cartItem:number = 0;
   numbetItem(){
     if(localStorage.getItem('Cart') != null){
       var cpt = JSON.parse(localStorage.getItem('Cart') || "") ;
       console.log("first");
-      console.log(cpt);
+      this.cartItem = cpt.length;
+      console.log(this.cartItem);
     }
   }
+  cartFunction(){
+    if (localStorage.getItem('Cart')) {
+      this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '') ;
+      console.log(this.cartItemArray);
+    } 
+  }
+ 
   }
 
 

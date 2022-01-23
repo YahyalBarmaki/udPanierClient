@@ -79,8 +79,15 @@ export class DetailsProductComponent implements OnInit {
         localStorage.setItem('Cart',JSON.stringify(this.itemCarts));
       }
     }
+    this.nbrePanierFunc();
   }
   
+  nbrePanier:number = 0;
+  nbrePanierFunc(){
+    var cartValue = JSON.parse(localStorage.getItem('Cart') || '');
+    this.nbrePanier = cartValue.length;
+    this.cardService.cartSubject.next(this.nbrePanier);
+  }
 
   getProduct(id): void {
     this.productService.getProductById(id)

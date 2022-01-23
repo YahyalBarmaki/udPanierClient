@@ -1,6 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { ProductsEntreprise } from 'src/app/models/products';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable,Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
@@ -44,17 +44,8 @@ export class CardService {
   getProducts() {
     return this.productList.asObservable();
   }
+  cartSubject = new Subject<any>();
   
-  /* setCartItem(cartItem: CartItem): Cart{
-    const cart: Cart = JSON.parse(localStorage.getItem(CART_KEY) || '');
-
-    cart.items?.push(cartItem);
-
-    const CartJson = JSON.stringify(cart)
-    localStorage.setItem(CART_KEY,CartJson)
-
-    return cart;
-  } */
  
   addtoCart(product: any) {
     if(this.cartItemList){
