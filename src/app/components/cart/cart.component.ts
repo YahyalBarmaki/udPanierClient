@@ -40,17 +40,7 @@ export class CartComponent implements OnInit {
   quantite = 1;
   ngOnInit(): void {
 
-    /* this.dataService.cart.subscribe(a => this.products = a);
-    console.log(this.products) */
-
-    this.cardService.getProducts()
-      .subscribe(res => {
-        this.products = res;
-        console.log(this.products)
-        this.getTotal();
-      })
     this.getTotal()
-
     this.cartFunction()
 
   }
@@ -58,10 +48,23 @@ export class CartComponent implements OnInit {
     this.carts = JSON.parse(localStorage.getItem('Cart') || '{}');
   }
 
-
   removeItem(item: any) {
-    console.log(item);
-    //this.cardService.removeCartItem(item);
+    if (localStorage.getItem('Cart')) {
+      this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
+      for (let i = 0; i < this.cartItemArray.length; i++) {
+        if (this.cartItemArray[i]._id === item._id) {
+              this.cartItemArray.splice(i, 1);
+              localStorage.setItem('Cart',JSON.stringify(this.cartItemArray));
+              this.nbrePanierFunc();
+          }        
+      }
+    }
+  }
+  nbrePanier:number = 0;
+  nbrePanierFunc(){
+    var cartValue = JSON.parse(localStorage.getItem('Cart') || '');
+    this.nbrePanier = cartValue.length;
+    this.cardService.cartSubject.next(this.nbrePanier);
   }
 
   emptycart() {
@@ -95,32 +98,6 @@ export class CartComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-  cartAll() {
-    this.productService.getProducts().subscribe(res => {
-      this.cartDatas = res
-      console.log(res)
-      console.log(this.cartDatas = res[0].price)
-    })
-  }
-  /* onDelete(deleteItem) {
-    this.items.splice(deleteItem, 1)
-  } */
-  /* emptyCart() {
-    this.items.splice
-   // this.items = [];
-    return this.items;
-    //this.router.navigate(['/cart'])
-
-  }*/
-
-
 cartFunction(){
   if (localStorage.getItem('Cart')) {
     this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '') ;
@@ -149,7 +126,7 @@ moins(prod:any) {
   console.log(prod.qtite);
   }else{
 
-    this.toast.error('Le manimum de quantité requis est 1','Error Item',{
+    this.toast.error('Le minimum de quantité requis est 1','Error Item',{
       progressBar: true,
       progressAnimation: 'increasing',
       positionClass:'toast-top-right',

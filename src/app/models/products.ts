@@ -4,7 +4,7 @@ export class ProductsEntreprise {
     desc!: string;
     price!: number;
     qtite!: number;
-    imageUrl!: string;
+    img!: string;
 }
 
 /* export const ProductsEntreprise = [

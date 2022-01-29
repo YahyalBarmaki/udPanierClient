@@ -11,11 +11,11 @@
             <ul class="shopping-list" *ngFor="let cart of cartItemArray">
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i
-                            class="fa fa-remove"></i></a>
-                    <a class="cart-img" href="#"><img
+                            class="fa fa-remove" (click)="removeItem(cart)"></i></a>
+                    <a class="cart-img"><img
                             src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
                             alt="#"></a>
-                    <h4><a href="#">{{cart.title}}</a></h4>
+                    <h4><a>{{cart.title}}</a></h4>
                     <p class="quantity">{{cart.qtite}}x - <span
                             class="amount">{{cart.price
                             |

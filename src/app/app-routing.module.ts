@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeAdminPanelComponent } from './components/admin-panel/home-admin-panel/home-admin-panel.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CommandesComponent } from './components/commandes/commandes.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DesignyourcartComponent } from './components/designyourcart/designyourcart.component';
 import { HappyCustomersComponent } from './components/happy-customers/happy-customers.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailsProductComponent } from './components/products/details-product/details-product.component';
@@ -29,7 +31,9 @@ const routes: Routes = [
   { path: 'detailsProduct', component: DetailsProductComponent },
   { path: 'happyCustomer', component: HappyCustomersComponent },
   { path: 'dashboards', component: DashboardComponent },
-  { path: 'checkout', component: CheckoutComponent }
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'commande', component:CommandesComponent},
+  {path: 'designyourcart',component:DesignyourcartComponent}
 ];
 
 

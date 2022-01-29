@@ -12,5 +12,6 @@ export const environment = {
     messagingSenderId: "620202546000",
     appId: "1:620202546000:web:428a40b5b82a569773d255"
   },
-  endpoint: 'http://localhost:5000/product'
+  endpoint: 'http://localhost:5000/product',
+  endpointOrder: 'http://localhost:5000/order'
 };

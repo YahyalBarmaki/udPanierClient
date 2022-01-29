@@ -37,6 +37,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrdersModule } from './models/orders.modules';
 import { CartIconComponent } from './components/cart-icon/cart-icon.component';
+import { CommandesComponent } from './components/commandes/commandes.component';
+import { DesignyourcartComponent } from './components/designyourcart/designyourcart.component';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { CartIconComponent } from './components/cart-icon/cart-icon.component';
     DetailsProductComponent,
     CheckoutComponent,
     CartIconComponent,
+    CommandesComponent,
+    DesignyourcartComponent,
 
   ],
   imports: [

@@ -27,9 +27,8 @@ export class CartIconComponent implements OnInit {
   }
   getTotal(): number {
     this.total = 0;
-    this.carts.forEach((element) => {
+    this.cartItemArray.forEach((element) => {
       this.total += (element.price * element.qtite);
-      console.log(this.total)
     })
     return this.total;
   }
@@ -37,18 +36,34 @@ export class CartIconComponent implements OnInit {
   numbetItem(){
     if(localStorage.getItem('Cart') != null){
       var cpt = JSON.parse(localStorage.getItem('Cart') || "") ;
-      console.log("first");
       this.cartItem = cpt.length;
-      console.log(this.cartItem);
     }
   }
   cartFunction(){
     if (localStorage.getItem('Cart')) {
-      this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '') ;
-      console.log(this.cartItemArray);
+      this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
+
     } 
   }
- 
+  nbrePanier:number = 0;
+  nbrePanierFunc(){
+    var cartValue = JSON.parse(localStorage.getItem('Cart') || '');
+    this.nbrePanier = cartValue.length;
+    this.cardService.cartSubject.next(this.nbrePanier);
+  }
+
+  removeItem(item: any) {
+    if (localStorage.getItem('Cart')) {
+      this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
+      for (let i = 0; i < this.cartItemArray.length; i++) {
+        if (this.cartItemArray[i]._id === item._id) {
+              this.cartItemArray.splice(i, 1);
+              localStorage.setItem('Cart',JSON.stringify(this.cartItemArray));
+              this.nbrePanierFunc();
+          }        
+      }
+    }
+  }
   }
 
 

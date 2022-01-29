@@ -16,6 +16,11 @@ export class OrderService {
     return this.http.get<ProductResponseModel[]>(`${this.ServerURL}orders/${orderId}`).toPromise();
   }
 
+
+  createCheckoutSession(orderItem: ProductResponseModel[]){
+    return this.http.post(`${this.ServerURL}/create-checkout-session`,orderItem)
+  }
+
 }
 interface ProductResponseModel {
 
