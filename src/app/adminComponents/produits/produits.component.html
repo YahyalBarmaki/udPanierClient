@@ -1,0 +1,45 @@
+<mat-toolbar>
+    <span>Yahya</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()"
+        tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="productData" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="$key">
+                <mat-form-field class="form-group">
+                    <input formControlName="title" matInput placeholder="Titre
+                        Carte*">
+                    <mat-error>Le champ titre ne doit pas etre vide</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input formControlName="desc" matInput
+                        placeholder="Description de la carte">
+                    <mat-error>Le champ Description ne doit pas etre vide</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input formControlName="img" matInput
+                        placeholder="Image*">
+                    <mat-error>Le champ image ne doit pas etre vide</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input formControlName="price" matInput placeholder="Prix">
+                    <mat-error>Le champ prix ne doit pas etre vide</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input formControlName="qtite" matInput
+                        placeholder="Quantité">
+                    <mat-error>Le champ quantité ne doit pas etre vide</mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                    <button mat-raised-button color="primary"
+                        [disabled]="productData.invalid" type="submit">Ajout</button>
+                    <button mat-raised-button color="warn" (click)="onClear()"
+                        class="warn">Clear</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

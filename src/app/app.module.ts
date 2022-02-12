@@ -28,6 +28,7 @@ import { ProductsItemComponent } from './components/products/products-item/produ
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { DetailsProductComponent } from './components/products/details-product/details-product.component';
 import { RouterModule } from '@angular/router';
+
 /**Social Login */
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 /**
@@ -39,6 +40,10 @@ import { OrdersModule } from './models/orders.modules';
 import { CartIconComponent } from './components/cart-icon/cart-icon.component';
 import { CommandesComponent } from './components/commandes/commandes.component';
 import { DesignyourcartComponent } from './components/designyourcart/designyourcart.component';
+import { ThankyouComponent } from './components/thankyou/thankyou.component';
+import { CommandePlusComponent } from './components/commande-plus/commande-plus.component';
+import { ListProduitsComponent } from './adminComponents/list-produits/list-produits.component';
+import { ProduitsComponent } from './adminComponents/produits/produits.component';
 
 
 @NgModule({
@@ -65,6 +70,10 @@ import { DesignyourcartComponent } from './components/designyourcart/designyourc
     CartIconComponent,
     CommandesComponent,
     DesignyourcartComponent,
+    ThankyouComponent,
+    CommandePlusComponent,
+    ListProduitsComponent,
+    ProduitsComponent,
 
   ],
   imports: [
@@ -109,6 +118,7 @@ import { DesignyourcartComponent } from './components/designyourcart/designyourc
     }
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents:[ProduitsComponent]
 })
 export class AppModule { }

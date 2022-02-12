@@ -1,0 +1,352 @@
+<app-header></app-header>
+<div class="container">
+    <section>
+        <br>
+        <div class="row">
+            <div class="col-md-6 divTab1 order-md-1">
+                <h4 class="text-center text-black my-5 text-uppercase">Concevoir
+                    ta propre
+                    carte</h4>
+                <div class="row">
+                    <div class="col">
+                        <a class="button mx-2" (click)="toggle()"><i class="fa
+                                fa-plus"
+                                aria-hidden="true"></i> Créer</a>
+                    </div>
+                    <div class="col">
+                        <a class="button2 mx-2 my-2"><i class="fa fa-share-alt"
+                                aria-hidden="true"></i> Partagez</a>
+                        <a class="button2 mx-2 my-2">Button</a>
+                        <a class="button2 my-2 mx-5 text-center"
+                            style="width:100px
+                            ;">Button</a>
+                    </div>
+                </div>
+                <button class="col-12 btn" *ngIf="isButtonVisible"
+                    (click)="toggleC()">Nouveau
+                    Ajout</button>
+            </div>
+            <div class="col-md-5 divTab mx-2 order-md-2"
+                *ngIf="iscoordonneVisible">
+                <ul class="action">
+                    <li>
+                        <a  (click)="toggleContact()"><h4><i class="fa fa-address-card">
+                                    Contact</i></h4></a>
+                    </li>
+                    <!--li>
+                        <a (click)="toggleMail()"><h4><i class="fa fa-envelope"
+                                    aria-hidden="true"></i> Email</h4></a>
+                    </li-->
+                    <li>
+                        <a (click)="togglePhone()"><h4><i class="fa fa-phone"
+                                    aria-hidden="true"></i> Phone</h4></a>
+                    </li>
+                    <li>
+                        <a (click)="toggleWeb()"><h4><i class="fa fa-globe"
+                                    aria-hidden="true"></i> Web</h4></a>
+                    </li>
+                    <li>
+                        <a (click)="toggleAdresse()"><h4><i class="fa fa-map-marker"
+                                    aria-hidden="true"></i> Adresse</h4></a>
+                    </li>
+                    <!--li>
+                        <a (click)="toggleCouleur()"><h4><i class="fas fa-palette"></i>
+                                Couleur</h4></a>
+                    </li-->
+                </ul>
+                <!--button class="col-12 btn2" > Créer</button-->
+            </div>
+        </div>
+    </section>
+    <!--Infos Personnelle-->
+                <section class="page-header">
+                    <div class="overly"></div>
+                    <div class="container">
+                        <div class="row justify-content-center" >
+                            <div class="col-lg-6">
+                                <form [formGroup]="designData">
+                                    <div *ngIf="isContactVisible"> 
+                                        <h4 class="text-center">Info Personnelle</h4>
+                                        <header class="text-white text-center">
+                                            <img
+                                                src="http://cdn.onlinewebfonts.com/svg/img_529971.png"
+                                                alt="" width="150" class="mb-4">
+                                        </header>
+                                        <div class="input-group mb-3 px-2 py-2
+                                            rounded-pill bg-white shadow-sm">
+                                            <input
+
+                                                accept="image/*"
+                                                (change)="onImageUpload($event)"
+                                                id="upload"
+                                                type="file"
+                                                class="form-control border-0">
+                                            <label id="upload-label"
+                                                for="upload"
+                                                class="font-weight-light
+                                                text-muted"></label>
+                                            <div class="col-2">
+                                                <img
+                                                    [src]="imageDisplay"
+                                                    alt=""
+                                                    style="width:100%;border-radius:50%">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prenom">Prénom</label>
+                                            <input
+                                                formControlName="prenom"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="prenom"
+                                                aria-describedby="prenom"
+                                                placeholder="Prénom">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prenom">Nom</label>
+                                            <input
+                                                formControlName="nom"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="nom"
+                                                aria-describedby="nom"
+                                                placeholder="nom">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="entreprise">Entreprise</label>
+                                            <input
+                                                formControlName="entreprise"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="entreprise"
+                                                aria-describedby="entreprise"
+                                                placeholder="entreprise">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nom">Poste</label>
+                                            <input
+                                                formControlName="poste"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="poste"
+                                                placeholder="poste">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nom">Birthday</label>
+                                            <input
+                                                formControlName="birthday"
+                                                type="date"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="birthday"
+                                                placeholder="Birthday">
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="isPhoneVisible || isContactVisible">
+                                        <h4 class="text-center">Phone</h4>
+                                        <div class="form-group">
+                                            <label for="nom">Home</label>
+                                            <input
+                                                formControlName="numHome"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="office"
+                                                placeholder="home">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nom">Office</label>
+                                            <input
+                                                formControlName="numOffice"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="office"
+                                                placeholder="office">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cell">Cell</label>
+                                            <input
+                                                formControlName="numCell"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="entreprise"
+                                                placeholder="cell">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nom">Office Fax</label>
+                                            <input
+                                                formControlName="numOfficeFax"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="officeFax"
+                                                placeholder="office Fax">
+                                        </div>
+
+                                    </div>
+
+                                    <div *ngIf="isWebVisible || isContactVisible">
+                                        <h4 class="text-center">Web</h4>
+                                        <div class="form-group">
+                                            <label for="email">Email 1</label>
+                                            <input
+                                                formControlName="email1"
+                                                type="email"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="email1"
+                                                placeholder="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email 2</label>
+                                            <input
+                                                formControlName="email2"
+                                                type="email"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="email2"
+                                                placeholder="Email 2">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="paypal">PayPal</label>
+                                            <input
+                                                formControlName="paypal"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="paypal"
+                                                placeholder="PayPal">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="web1">Web 1</label>
+                                            <input
+                                                formControlName="web1"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="web1"
+                                                placeholder="web1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="web2">Web 2</label>
+                                            <input
+                                                formControlName="web2"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="web2"
+                                                placeholder="Web 2">
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="isAdresseVisible || isContactVisible">
+                                        <h4 class="text-center">Home Adresse</h4>
+                                        <div class="form-group">
+                                            <label for="rue">Rue</label>
+                                            <input
+                                                formControlName="rue"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="rue"
+                                                placeholder="Rue">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="codePostal">Code Postal</label>
+                                            <input
+                                                formControlName="email2"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="codePostal"
+                                                placeholder="Email 2">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ville">Ville</label>
+                                            <input
+                                                formControlName="ville"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="ville"
+                                                placeholder="Ville">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="station">Station</label>
+                                            <input
+                                                formControlName="station"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="station"
+                                                placeholder="Station">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pays">Pays</label>
+                                            <input
+                                                formControlName="pays"
+                                                type="text"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="pays"
+                                                placeholder="Pays">
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="isCouleurVisible || isContactVisible ">
+                                        <h4 class="text-center">Couleur</h4>
+                                        <div class="form-group">
+                                            <label for="backgroundColor">Background
+                                                Couleur</label>
+                                            <input
+                                                formControlName="backgroundCouleur"
+                                                value="#f66465"
+                                                type="color"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="backgroundCouleur"
+                                                placeholder="backgroundCouleur">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Couleur Texte">Couleur
+                                                Texte</label>
+                                            <input
+                                                formControlName="couleurText"
+                                                value="#e57765"
+                                                type="color"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="couleurText"
+                                                placeholder="Couleur Texte">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="couleuSurligner">Couleur
+                                                Surligner</label>
+                                            <input
+                                                formControlName="couleurSurligner"
+                                                value="#e66465"
+                                                type="color"
+                                                class="form-control rounded-pill
+                                                bg-white shadow-sm"
+                                                id="couleurSurligner"
+                                                placeholder="Couleur Surligner">
+                                        </div>
+
+                                    </div>
+                                <button type="submit" class="col-12 btnCreate" *ngIf="isContactVisible || isMailVisible || isWebVisible || isAdresseVisible">Créez</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <app-footer></app-footer>
+

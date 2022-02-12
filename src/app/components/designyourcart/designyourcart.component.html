@@ -1,21 +1,29 @@
+<app-header></app-header>
 <section class="page-header">
     <div class="overly"></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <form [formGroup]="designForm">
-                    <div> 
+                <form [formGroup]="designData" (ngSubmit)="ngSubmit()">
+                    <div > 
                         <h4 class="text-center">Info Personnelle</h4>
                         <header class="text-white text-center">
                             <img src="http://cdn.onlinewebfonts.com/svg/img_529971.png" alt="" width="150" class="mb-4">
                         </header>
                         <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
                             <input 
-                            formControlName="image"
-                            id="upload" 
+                            accept="image/*"
+                            (change)="onImageUpload($event)"
+                             
                             type="file"  
                             class="form-control border-0">
                             <label id="upload-label" for="upload" class="font-weight-light text-muted"></label>
+                            <div class="col-2">
+                                <img 
+                                [src]="imageDisplay" 
+                                alt=""
+                                style="width:100%;border-radius:50%">
+                            </div>
                         </div>
                         <div class="form-group ">
                             <label for="prenom">Prénom</label>
@@ -156,7 +164,8 @@
                             placeholder="Web 2">
                         </div>
                     </div>
-                    <div>
+
+                    <div >
                         <h4 class="text-center">Home Adresse</h4>
                         <div class="form-group">
                             <label for="rue">Rue</label>
@@ -204,6 +213,7 @@
                             placeholder="Pays">
                         </div>
                     </div>
+
                     <div >
                         <h4 class="text-center">Couleur</h4>
                         <div class="form-group">
@@ -239,11 +249,12 @@
 
                     </div>
                     <!--a class="btn btn-primary mx-2">Précédent</a-->
-                    <button type="submit" class="btn btn-primary mx-2" *ngIf="step !=1" (click)="precedent()">Précédent</button>
-                    <button type="submit" class="btn btn-primary mx-2" *ngIf="step != 5">Suivant</button>
-                    <button type="submit" class="btn btn-primary mx-2"  (click)="createYourCard()">Crée</button>
+                   
+                    <button type="submit" class="btn btn-success mx-2"  (click)="createYourCard()">Créez</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<app-footer></app-footer>
+

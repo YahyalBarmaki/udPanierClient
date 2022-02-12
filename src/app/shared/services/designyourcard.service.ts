@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const AUTH_API = 'http://localhost:5000/design/';
+const AUTH_API = 'http://localhost:5000/design/create';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,7 @@ export class DesignyourcardService {
   constructor(private http:HttpClient) { }
 
 
-  createYourCard(body:any){
-    return this.http.post(AUTH_API + 'create',body,{
-      observe:'body'
-    })
+  createCard(productData: FormData) {
+    return this.http.post(AUTH_API, productData);
   }
 }

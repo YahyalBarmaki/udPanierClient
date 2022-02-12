@@ -30,6 +30,7 @@
     "graphql": "^15.7.2",
     "http-server": "^14.0.0",
     "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
     "ngx-stripe": "^13.0.0",
     "ngx-toastr": "^14.2.1",
     "rxjs": "~6.6.0",

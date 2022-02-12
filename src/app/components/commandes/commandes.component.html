@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">  
     <div class="col-75">
         <div class="container">
             <form action="/action_page.php">
@@ -93,4 +93,86 @@
             <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
         </div>
     </div>
-</div>
+</div> -->
+
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col md-12">
+
+            </div>
+            <div class="col-lg-4 col md-12">
+                <div class="cart_totals checkout">
+                    <h4>Récapitulatif de la commande</h4>
+                    <div class="pro_product_wrap">
+                        <ul>
+                            <li><strong>Total à payer</strong> <p>3 250 CFA</p>
+                            </li>
+                            <form method="POST" enctype="multipart/form-data"
+                                action="/orders/create/">
+                                <input type="hidden" name="csrfmiddlewaretoken"
+                                    value="iRpJJJXayIKg5aFH6GohuaB2w7jS2VyilgyAGQ0qjyVAOKJtkF1lDuBeOb5oQD3Z">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <small class="text-danger">
+                                                </small>
+                                                <label for="id_first_name">Prénom</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="first_name"
+                                                    id="id_first_name" value=""
+                                                    required="">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <small class="text-danger">
+                                                </small>
+                                                <label for="id_last_name">Nom de
+                                                    famille</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="last_name"
+                                                    id="id_last_name" value=""
+                                                    required="">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <small class="text-danger">
+                                                </small>
+                                                <label for="id_email">Adresse
+                                                    mail</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="email" id="id_email"
+                                                    value="" required="">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <small class="text-danger">
+                                                </small>
+                                                <label for="id_phone">Téléphone</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="phone" id="id_phone"
+                                                    value="" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <img
+                                            src="assets/2payduny.png"
+                                            alt="paydunyabutton" width="100%">
+                                        <button class="btn theme-bg btn-block"
+                                            (click)="effectuerPaiement(100)">Effectuer
+                                            le paiement</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

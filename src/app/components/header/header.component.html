@@ -34,7 +34,7 @@
               <li><i class="ti-user"></i> <a [routerLink]="['user-profile/id']">Mon
                   compte</a></li>
               <li *ngIf="!this.authService.isLoggedIn"><i class="ti-power-off"></i><a
-                  [routerLink]="['signIn']">Se connecter</a></li>
+                  [routerLink="['signIn']">Se connecter</a></li>
               <li *ngIf="this.authService.isLoggedIn"><i class="ti-power-off"></i><a
                   (click)="logout()">Se deconnecter</a></li>
             </ul>
@@ -96,7 +96,7 @@
                   fa-heart-o" aria-hidden="true"></i></a>
             </div>
             <div class="sinlge-bar">
-              <a [routerLink]="['signIn']" class="single-icon"><i class="fa
+              <a routerLink='/signIn' class="single-icon"><i class="fa
                   fa-user-circle-o"
                   aria-hidden="true"></i></a>
             </div>
