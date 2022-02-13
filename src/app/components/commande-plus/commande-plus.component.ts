@@ -234,35 +234,7 @@ export class CommandePlusComponent implements OnInit {
       }
     )  
 
-    /* this.http.post(AUTH_API,designCardFormData).subscribe(
-      (response) => {
-        if (response) {
-          alert(response)
-          console.log(response)
-        }
-    },
-      (error) =>{
-          if (error) {
-            alert(error)
-            console.log(error)
-          }
-      }
-    ) */
-
-    /* if (this.designForm.valid) {
-      this.ds.createYourCard(this.designForm.value)
-      .subscribe((res) =>{
-        console.log("first");
-        console.log(res);
-        this.router.navigate(['/profile']);
-      },
-      err => {
-        this.errorMessage = err.error.message;
-            console.log(this.errorMessage);
-      }
-        
-      )
-    } */
+   
   }
   get designCardForm(){
     return this.designData.controls;  }

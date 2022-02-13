@@ -21,7 +21,8 @@ export class ProduitsComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ProduitsComponent>,public fb: FormBuilder, private router: Router
     ,private http:  HttpClient,
     private ps: AdminProduitService,
-    private ntf:NotificationService) { }
+    private ntf:NotificationService,
+    ) { }
 
   productData!:FormGroup;
 
@@ -60,10 +61,9 @@ export class ProduitsComponent implements OnInit {
     )
   }
   onClose() {
-    
     this.dialogRef.close();
   }
-
+  imageDisplay:any;
   onImageUpload(event:any){
     const file = event.target.files[0];
     if (file) {
@@ -71,7 +71,7 @@ export class ProduitsComponent implements OnInit {
       //this.designData.get('image').updateValueAndValidity();
       const fileReader = new FileReader();
       fileReader.onload = (event: any) =>{
-        this.productData = event.target.result;
+        this.imageDisplay = event.target.result;
       }
       fileReader.readAsDataURL(file);
     }
@@ -105,13 +105,27 @@ export class ProduitsComponent implements OnInit {
           }
       }
     )  
-    
+    this.onClose()
   }
   get productFormCtr(){
     return this.productData.controls;  }
 
 
-    onClear(){
+  onClear(){
       this.productForm.reset();
     }
+    /**
+     * Upload an image
+     */
+
+
+
+
+
+
+
+
+
+
+    
 }

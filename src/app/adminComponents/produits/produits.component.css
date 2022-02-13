@@ -14,3 +14,16 @@
 .warn {
   margin-left: 5px;
 }
+
+h6 {
+  position: relative;
+  bottom: -30px;
+}
+.title-product {
+  background-color: rgb(252, 252, 252);
+}
+.btn-default {
+  position: relative;
+  bottom: 14px;
+  right: -581px;
+}
