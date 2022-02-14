@@ -79,7 +79,7 @@ export class ProduitsComponent implements OnInit {
   addProduct(){
     if (this.productData.invalid) {
       this.productData.reset();
-      this.ntf.success(':: Submitted successfully')
+      this.ntf.success(':: Veuillez remplir correctement')
       console.log("error");
       return;
     }
@@ -95,6 +95,7 @@ export class ProduitsComponent implements OnInit {
       (response) => {
         if (response) {
           //alert(response)
+      this.ntf.success(':: Veuillez remplir correctement')
           console.log(response)
         }
     },

@@ -57,11 +57,14 @@
                 <span class="ml-auto"><a href="#" class="forgot-pass">Mot de
                     passe oublié</a></span>
               </div>
-
-
               <button type="submit" class="btn text-white btn-block btn-primary
                 bg-black"
                 (click)="login()">Se connecter</button>
+              <div class="col-12">
+                <span class="text-warn"*ngIf="erreurMessage">Votre email ou mot
+                  de passe est
+                  incorrect</span>
+              </div>
               <span class="d-block text-left my-4 text-muted"> <a
                   routerLink="../signUp">S'inscrire</a> </span>
               <span class="d-block text-left my-4 text-muted">-----------Ou se

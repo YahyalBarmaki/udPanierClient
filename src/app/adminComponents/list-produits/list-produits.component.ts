@@ -79,7 +79,9 @@ export class ListProduitsComponent implements OnInit {
     this.dialog.open(ProduitsComponent,dialogConfig);
    }
    /**
-    * Close PopUp
+    * Edit button
     */
- 
+    onEdit(element){
+      
+    }
 }

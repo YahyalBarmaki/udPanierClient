@@ -22,6 +22,7 @@ export class SignInComponent implements OnInit {
   public password!: string;
   public error!: string;
   isLoggedIn = false;
+  erreurMessage = false;
   errorMessage = '';
   roles: string[] = [];
   signinForm: FormGroup = new FormGroup({
@@ -77,8 +78,9 @@ export class SignInComponent implements OnInit {
           this.router.navigate(['/profile']);
         },
           err => {
-            this.errorMessage = err.error.message;
-            console.log(this.errorMessage);
+            this.erreurMessage = true
+            //this.errorMessage = err.error.message;
+            console.log(this.erreurMessage);
 
           }
         )
