@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('./dist/Cart'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: '/Cart/'}),
+    res.sendFile('index.html', {root: 'dist/Cart/'}),
 );
 
 /* app.use(express.static(__dirname + '/dist/Cart'));
