@@ -23,26 +23,26 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 
 const routes: Routes = [
   
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
-  { path: 'home', component: HomeComponent },
-  { path: 'signIn', component: SignInComponent },
-  { path: 'signUp', component: SignUpComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'https://usine-digitale-vcard.herokuapp.com/home' },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/home', component: HomeComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/signIn', component: SignInComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/signUp', component: SignUpComponent },
   //{ path: 'cart', component: CartComponent },
   //{ path: 'products', component: ProductsComponent },
-  { path: 'admin-panel-home', component: HomeAdminPanelComponent },
-  { path: 'profile', component: UserProfilComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/admin-panel-home', component: HomeAdminPanelComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/profile', component: UserProfilComponent },
   //{ path: 'product/:id', component: DetailsProductComponent },
-  { path: 'detailsProduct', component: DetailsProductComponent },
-  { path: 'happyCustomer', component: HappyCustomersComponent },
-  { path: 'dashboards', component: DashboardComponent ,
+  { path: 'https://usine-digitale-vcard.herokuapp.com/detailsProduct', component: DetailsProductComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/happyCustomer', component: HappyCustomersComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/dashboards', component: DashboardComponent ,
    canActivate: [AuthGuard]  
 },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'commande', component:CommandesComponent},
-  {path: 'designyourcart',component:DesignyourcartComponent},
-  {path: 'thankyou',component:ThankyouComponent},
-  {path: 'commande_plus',component:CommandePlusComponent},
-  {path:'listproduit',component:ListProduitsComponent,
+  { path: 'https://usine-digitale-vcard.herokuapp.com/checkout', component: CheckoutComponent },
+  { path: 'https://usine-digitale-vcard.herokuapp.com/commande', component:CommandesComponent},
+  {path: 'https://usine-digitale-vcard.herokuapp.com/designyourcart',component:DesignyourcartComponent},
+  {path: 'https://usine-digitale-vcard.herokuapp.com/thankyou',component:ThankyouComponent},
+  {path: 'https://usine-digitale-vcard.herokuapp.com/commande_plus',component:CommandePlusComponent},
+  {path:'https://usine-digitale-vcard.herokuapp.com/listproduit',component:ListProduitsComponent,
   canActivate: [AuthGuard] }
 ];
 
