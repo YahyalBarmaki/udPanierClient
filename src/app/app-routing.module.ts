@@ -23,8 +23,8 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 
 const routes: Routes = [
   
-  { path: '', pathMatch: 'full', redirectTo: 'https://usine-digitale-vcard.herokuapp.com/' },
-  { path: 'https://usine-digitale-vcard.herokuapp.com/', component: HomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/https://usine-digitale-vcard.herokuapp.com' },
+  { path: 'https://usine-digitale-vcard.herokuapp.com', component: HomeComponent },
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   //{ path: 'cart', component: CartComponent },
