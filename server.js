@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('./dist/panierClient'));
 
 app.get('/*', (req, res) =>
-    res.sendFile(`./panierClient/dist/index.html`),
+    res.sendFile('index.html', {root: '/panierClient/'}),
 );
 
 // Start the app by listening on the default Heroku port
