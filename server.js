@@ -11,10 +11,10 @@ app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: '/panierClient/'}),
 ); */
 
-app.use(express.static(__dirname + '/dist/cart'));
+app.use(express.static(__dirname + '/dist/Cart'));
 
 app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname+'/dist/cart/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/Cart/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
