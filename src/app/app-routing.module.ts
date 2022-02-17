@@ -22,6 +22,7 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 
 
 const routes: Routes = [
+  
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'signIn', component: SignInComponent },
@@ -33,13 +34,16 @@ const routes: Routes = [
   //{ path: 'product/:id', component: DetailsProductComponent },
   { path: 'detailsProduct', component: DetailsProductComponent },
   { path: 'happyCustomer', component: HappyCustomersComponent },
-  { path: 'dashboards', component: DashboardComponent },
+  { path: 'dashboards', component: DashboardComponent ,
+   canActivate: [AuthGuard]  
+},
   { path: 'checkout', component: CheckoutComponent },
   { path: 'commande', component:CommandesComponent},
   {path: 'designyourcart',component:DesignyourcartComponent},
   {path: 'thankyou',component:ThankyouComponent},
   {path: 'commande_plus',component:CommandePlusComponent},
-  {path:'listproduit',component:ListProduitsComponent}
+  {path:'listproduit',component:ListProduitsComponent,
+  canActivate: [AuthGuard] }
 ];
 
 

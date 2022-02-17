@@ -85,7 +85,7 @@ ul li {
 /******Buttun 2***************/
 .button2 {
   display: inline-block;
-  *display: inline;
+  display: inline;
   zoom: 1;
   padding: 8px 20px;
   margin: 0;
@@ -178,4 +178,9 @@ ul li {
 
 .btn:hover:before {
   left: 100%;
+}
+
+.my-2 {
+  margin-top: 2.1rem !important;
+  margin-bottom: 0.5rem !important;
 }

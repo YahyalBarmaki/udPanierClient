@@ -7,6 +7,8 @@ import { GoogleLoginProvider, SocialAuthService, FacebookLoginProvider } from 'a
 import { TokenStorageService } from 'src/app/shared/auth/token-storage.service';
 import { UserAuth } from './../../models/user';
 import { first } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+TokenStorageService
 /**
  * Social login
  */
@@ -24,6 +26,7 @@ export class SignInComponent implements OnInit {
   isLoggedIn = false;
   erreurMessage = false;
   errorMessage = '';
+  authMessage="Votre email ou mot de passe est incorrect"
   roles: string[] = [];
   signinForm: FormGroup = new FormGroup({
     email: new FormControl('',
@@ -41,7 +44,8 @@ export class SignInComponent implements OnInit {
     public fb: FormBuilder,
     private auth_service: AuthService,
     private authService: SocialAuthService,
-    public router: Router
+    public router: Router,
+    private tl:TokenStorageService
   ) {
     this.titleService.setTitle('SignIn');
   }
@@ -72,16 +76,20 @@ export class SignInComponent implements OnInit {
       this.auth_service.signIn(this.signinForm.value)
         .subscribe((res) => {
           console.log(res)
+          this.erreurMessage =  false
+          //this.tl.setToken()
           const jsonData = JSON.stringify(res)
-          localStorage.setItem("access_token", jsonData);
-          console.log(jsonData)
-          this.router.navigate(['/profile']);
+          const j =jsonData.split('.')[2]
+          localStorage.setItem("token", j);
+          console.log(j)
+          this.router.navigate(['/dashboards']);
         },
-          err => {
+          (error:HttpErrorResponse) => {
+            console.log(error);
             this.erreurMessage = true
-            //this.errorMessage = err.error.message;
-            console.log(this.erreurMessage);
-
+            if(error.status!== 400){
+                this.authMessage = "Erreur au niveau du serveur, veillez ressayer plus tard s'il vous plait"
+            }
           }
         )
     }
