@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   //{ path: 'cart', component: CartComponent },
-  //{ path: 'products', component: ProductsComponent },
+  { path: 'products', component: ProductsComponent },
   { path: 'admin-panel-home', component: HomeAdminPanelComponent },
   { path: 'profile', component: UserProfilComponent },
   //{ path: 'product/:id', component: DetailsProductComponent },
