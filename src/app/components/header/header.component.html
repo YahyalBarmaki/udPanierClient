@@ -96,7 +96,7 @@
                   fa-heart-o" aria-hidden="true"></i></a>
             </div>
             <div class="sinlge-bar">
-              <a routerLink='/signIn'
+              <a [routerLink]="['signIn']"
                 class="single-icon"><i class="fa
                   fa-user-circle-o"
                   aria-hidden="true"></i></a>
@@ -120,9 +120,9 @@
                   <div class="nav-inner">
                     <ul class="nav main-menu menu navbar-nav">
                       <li [routerLinkActive]="['active']"><a
-                          [routerLink]="['home']">ACCUEIL</a></li>
+                          routerLink="/home">ACCUEIL</a></li>
                       <li [routerLinkActive]="['active']"><a
-                          [routerLink]="['products']">PRODUITS</a></li>
+                          routerLink="/products">PRODUITS</a></li>
                       <li [routerLinkActive]="['active']"><a
                           (click)="openDialog()">LISTE DE COMPATIBILITÉ</a></li>
                       <li [routerLinkActive]="['active']"><a
