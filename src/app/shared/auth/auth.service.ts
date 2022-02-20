@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { UserAuth } from './../../models/user';
 import { SocialUser } from 'angularx-social-login';
 
-const AUTH_API = 'https://card-ap.herokuapp.com/';
+const AUTH_API = 'https://card-ap.herokuapp.com/api/';
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +23,14 @@ export class AuthService {
 
   // Sign-up
   signUp(body: any): Observable<any> {
-    return this.http.post(AUTH_API + 'api/register', body, {
+    return this.http.post(AUTH_API + 'register', body, {
       observe: 'body'
     })
   }
 
 
   signIn(body: any) {
-    return this.http.post(AUTH_API + 'api/login', body, {
+    return this.http.post(AUTH_API + 'login', body, {
       observe: 'body'
     })
 
