@@ -24,13 +24,23 @@ export class CommandesComponent implements OnInit {
      }
 
      payForm = new FormGroup({
-       invoice: new FormGroup({
-        total_amount: new FormControl("",[
+      invoice:new FormGroup({
+        total_amount: new FormControl('',[
           Validators.required
         ]),
         description: new FormControl('')
-       })
-     })
+      }),
+      store : new FormGroup
+      ({
+        name: new FormControl('')
+      }),
+      actions: new FormGroup({
+        cancel_url: new FormControl('http://localhost:4200/products'),
+        return_url: new FormControl(''),
+        callback_url: new FormControl('')
+      })
+      
+    })
      shipping = new FormGroup({
        fullName : new FormControl("",[
          Validators.required,
@@ -45,7 +55,7 @@ export class CommandesComponent implements OnInit {
          Validators.required
        ])
      })
-
+    // get fPay() { return this.payForm.controls; }
 
 
   ngOnInit(): void {
@@ -53,6 +63,7 @@ export class CommandesComponent implements OnInit {
     this.numbetItem();
     this.cartFunction();
     console.log(this.getTotal());
+    console.log(this.payForm);
     this.payForm.get('invoice.total_amount')?.setValue(this.getTotal());
   }
   getTotal(): number {
