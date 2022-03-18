@@ -63,6 +63,8 @@ export class CommandesComponent implements OnInit {
     this.numbetItem();
     this.cartFunction();
     console.log(this.getTotal());
+    //console.log(this.payForm);
+
     console.log(this.payForm);
     this.payForm.get('invoice.total_amount')?.setValue(this.getTotal());
   }
