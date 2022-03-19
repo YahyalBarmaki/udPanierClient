@@ -3,7 +3,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col md-12">
+            <div class="col-lg-6 col md-12">
                 <form [formGroup]="shippingForm">
                     <div class="row">
                         <div class="col-50">
@@ -57,14 +57,18 @@
 
                 </form>
             </div>
-            <div class="col-lg-4 col md-12">
+            <div class="col-lg-6 col md-12">
                 <div class="cart_totals checkout">
                     <h4>Récapitulatif de la commande</h4>
                     <div class="pro_product_wrap">
                         <ul>
                             <form [formGroup]="payForm">
                                 <div formGroupName="invoice">
-                                    <div>Total à payer :<input type="number" formControlName="total_amount" readonly>
+
+                                    <h6>Titre: {{title}}</h6>
+
+                                    <div>Total à payer :<input type="number" formControlName="total_amount" readonly class="inputTotal">
+
                                     </div>
                                 </div>
                                 <div class="row">

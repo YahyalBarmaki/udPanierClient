@@ -115,9 +115,7 @@ plus(prod:any) {
       progressAnimation: 'increasing',
       positionClass:'toast-top-right',
       timeOut: 1500
-    }
-      
-    )
+    })
   }
 }
 moins(prod:any) {

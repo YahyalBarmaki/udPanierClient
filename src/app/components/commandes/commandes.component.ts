@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 import { CardService } from 'src/app/shared/services/card.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PaydunyaService } from 'src/app/shared/services/paydunya.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,11 +16,13 @@ export class CommandesComponent implements OnInit {
   public totalItem: number = 0;
   carts: any = [];
   total: number = 0;
+  title:any;
   cartTotal = 0;
   cartItemArray:any= [];
   constructor(private cardService: CardService,
     public authService: AuthService,
-    public pds : PaydunyaService
+    public pds : PaydunyaService,
+    private toast: ToastrService
     ) {
       this.cardService.cartSubject.subscribe((data)=>{
         this.cartItem = data;
@@ -39,8 +42,8 @@ export class CommandesComponent implements OnInit {
       }),
       actions: new FormGroup({
         cancel_url: new FormControl('http://localhost:4200/products'),
-        return_url: new FormControl(''),
-        callback_url: new FormControl('')
+        return_url: new FormControl('http://localhost:4200/thankyou'),
+        callback_url: new FormControl('http://localhost:4200/thankyou')
       })
       
     })
@@ -75,12 +78,16 @@ export class CommandesComponent implements OnInit {
     console.log(this.getTotal());
     console.log(this.payForm);
     this.payForm.get("invoice.total_amount")?.setValue(this.getTotal());
+
   }
   getTotal(): number {
     this.total = 0;
+    console.log(this.cartItemArray);
     this.cartItemArray.forEach((element) => {
       this.total += (element.price * element.qtite);
+      this.title = element.title
     })
+
     return this.total;
   }
   cartItem:number = 0;
@@ -108,6 +115,13 @@ export class CommandesComponent implements OnInit {
   
   effectuerPaiement(){
     if (this.shippingForm.invalid) {
+      //alert("Veillez remplir les champs avant d'effectuer le paiement")
+      this.toast.error("Veillez remplir les champs avant d'effectuer le paiement",'Erreur',{
+        progressBar: true,
+        progressAnimation: 'increasing',
+        positionClass:'toast-top-center',
+        timeOut: 1500
+      })
       return;
     }
     if (this.shippingForm.valid) {
