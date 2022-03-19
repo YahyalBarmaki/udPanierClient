@@ -15,6 +15,8 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class CartComponent implements OnInit {
   cartDatas!: any;
+  public tqtite!:any;
+  public totalPrice!:any;
   public products: any = [];
   @Input() _id!: number;
   public cartItemLists: any = [];
@@ -89,12 +91,18 @@ export class CartComponent implements OnInit {
   }
 
   getTotal(): number {
+    this.totalPrice = 0;
     this.total = 0;
+    this.tqtite = 0;
     this.cartItemArray.forEach((element) => {
       this.total += (element.price * element.qtite);
-      console.log(this.total)
+      this.tqtite += element.qtite;
+      this.totalPrice += (element.price * this.tqtite);
+      console.log(this.tqtite);
+      console.log(this.totalPrice)
     })
-    return this.total;
+    localStorage.setItem('totalPrice', JSON.stringify(this.totalPrice));
+    return this.totalPrice;
   }
 
 
@@ -106,6 +114,7 @@ cartFunction(){
 }
 
 plus(prod:any) {
+    
   if (prod.qtite!=10) {
     prod.qtite +=1;
   console.log(prod.qtite);

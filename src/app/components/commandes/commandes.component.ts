@@ -13,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CommandesComponent implements OnInit {
 
+  public tqtite!:any;
+  public totalPrice!:any;
   public totalItem: number = 0;
   carts: any = [];
   total: number = 0;
@@ -76,15 +78,23 @@ export class CommandesComponent implements OnInit {
     this.numbetItem();
     this.cartFunction();
     console.log(this.getTotal());
+    console.log('object');
+    console.log(this.getTotalPrice());
     console.log(this.payForm);
-    this.payForm.get("invoice.total_amount")?.setValue(this.getTotal());
+    console.log("test");
+    this.payForm.get("invoice.total_amount")?.setValue(this.getTotalPrice());
+    
 
   }
   getTotal(): number {
+    //this.totalPrice = 0;
     this.total = 0;
+    this.tqtite = 0;
     console.log(this.cartItemArray);
     this.cartItemArray.forEach((element) => {
       this.total += (element.price * element.qtite);
+
+      localStorage.setItem('total', JSON.stringify(this.total));
       this.title = element.title
     })
 
@@ -97,7 +107,17 @@ export class CommandesComponent implements OnInit {
       this.cartItem = cpt.length;
     }
   }
+  getTotalPrice(): number{
+    localStorage.getItem('totalPrice')
+    var tt = JSON.parse(localStorage.getItem('totalPrice') || "")
+    this.totalPrice = tt;
 
+    console.log(this.totalPrice);
+    return this.totalPrice;
+  }
+/* totalPrice(){
+  localStorage.setItem('total', JSON.stringify(this.total));
+ }*/
   cartFunction(){
     if (localStorage.getItem('Cart')) {
       this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
