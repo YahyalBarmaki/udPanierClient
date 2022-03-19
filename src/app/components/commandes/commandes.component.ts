@@ -45,21 +45,27 @@ export class CommandesComponent implements OnInit {
       
     })
 
-     shipping = new FormGroup({
+     shippingForm: FormGroup = new FormGroup({
        fullName : new FormControl("",[
          Validators.required,
        ]),
        email: new FormControl("",[
-         Validators.required
-       ]),
-       adresse: new FormControl("",[
-         Validators.required
+         Validators.required,
+         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
        ]),
        tel:new FormControl("",[
-         Validators.required
-       ])
+         Validators.required,
+         Validators.minLength(9),
+         Validators.maxLength(9)
+       ]),
+       adresse: new FormControl("",[
+         Validators.required,
+         
+       ]),
+       city: new FormControl("",[
+        Validators.required,
+      ])
      })
-    // get fPay() { return this.payForm.controls; }
 
 
   ngOnInit(): void {
@@ -97,15 +103,26 @@ export class CommandesComponent implements OnInit {
     this.nbrePanier = cartValue.length;
     this.cardService.cartSubject.next(this.nbrePanier);
   }
+  get fShipping() { return this.shippingForm.controls; }
+
+  
   effectuerPaiement(){
-    if(this.payForm.valid){
-      this.pds.paydunya(this.payForm.value).subscribe(
+    if (this.shippingForm.invalid) {
+      return;
+    }
+    if (this.shippingForm.valid) {
+      this.pds.shipping(this.shippingForm.value).subscribe(
         (res)=>{
-          console.log(res);
-          window.location.href = res.response_text;
+          this.pds.paydunya(this.payForm.value).subscribe(
+            (res)=>{
+              console.log(res);
+              window.location.href = res.response_text;
+            }
+          )
         }
       )
     }
   }
+  
 
 }

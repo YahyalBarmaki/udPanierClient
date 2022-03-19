@@ -13,5 +13,7 @@ export const environment = {
     appId: "1:620202546000:web:428a40b5b82a569773d255"
   }, */
   endpoint: 'https://card-ap.herokuapp.com/product',
+  endpointShipping: 'https://card-ap.herokuapp.com/customer',
+
   endpointOrder: 'http://localhost:5000/order'
 };

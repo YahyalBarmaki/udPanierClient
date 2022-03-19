@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Paydunya } from 'src/app/models/paydunya';
+import { environment } from 'src/environments/environment';
  const  apiServer = "https://app.paydunya.com/sandbox-api/v1/checkout-invoice/create";
   const httpOptions = {
     headers: new HttpHeaders({
@@ -18,6 +19,7 @@ import { Paydunya } from 'src/app/models/paydunya';
 export class PaydunyaService {
 
   constructor(private http:HttpClient) { }
+  private baseURL = environment.endpointShipping
 
   paydunya(body:any):Observable<Paydunya>{
     
@@ -39,4 +41,7 @@ export class PaydunyaService {
     console.log(errorMessage);
     return throwError(errorMessage);
  }
+ shipping(body:any){
+  return this.http.post(this.baseURL+'/create',body);
+}
 }
