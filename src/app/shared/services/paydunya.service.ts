@@ -7,9 +7,9 @@ import { Paydunya } from 'src/app/models/paydunya';
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      "PAYDUNYA-MASTER-KEY": "wQzk9ZwR-Qq9m-0hD0-zpud-je5coGC3FHKW",
-      "PAYDUNYA-PRIVATE-KEY": "test_private_GYqtXS57coENYdPwHR4vGEGeQNE",
-      "PAYDUNYA-TOKEN": "rJAGC0bGkNnnfY9p2aBd"
+      "PAYDUNYA-MASTER-KEY": "VpDhKUiS-oyzR-D4ml-U6ft-YA7cDdVpDII0",
+      "PAYDUNYA-PRIVATE-KEY": "test_private_mMDiJp1K4ucMA5ZBI5y9cEcjvOr",
+      "PAYDUNYA-TOKEN": "v34SQ2YXPBqNZpGjhwNW"
      } )
   }
 @Injectable({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { CardService } from 'src/app/shared/services/card.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PaydunyaService } from 'src/app/shared/services/paydunya.service';
 
 
 @Component({
@@ -17,7 +18,9 @@ export class CommandesComponent implements OnInit {
   cartTotal = 0;
   cartItemArray:any= [];
   constructor(private cardService: CardService,
-    public authService: AuthService,) {
+    public authService: AuthService,
+    public pds : PaydunyaService
+    ) {
       this.cardService.cartSubject.subscribe((data)=>{
         this.cartItem = data;
       });
@@ -41,6 +44,7 @@ export class CommandesComponent implements OnInit {
       })
       
     })
+
      shipping = new FormGroup({
        fullName : new FormControl("",[
          Validators.required,
@@ -64,9 +68,7 @@ export class CommandesComponent implements OnInit {
     this.cartFunction();
     console.log(this.getTotal());
     console.log(this.payForm);
-
-    console.log(this.payForm);
-    this.payForm.get('invoice.total_amount')?.setValue(this.getTotal());
+    this.payForm.get("invoice.total_amount")?.setValue(this.getTotal());
   }
   getTotal(): number {
     this.total = 0;
@@ -96,7 +98,14 @@ export class CommandesComponent implements OnInit {
     this.cardService.cartSubject.next(this.nbrePanier);
   }
   effectuerPaiement(){
-
+    if(this.payForm.valid){
+      this.pds.paydunya(this.payForm.value).subscribe(
+        (res)=>{
+          console.log(res);
+          window.location.href = res.response_text;
+        }
+      )
+    }
   }
 
 }

@@ -23,6 +23,7 @@ export interface Paydunya
         "return_url": "",
         "callback_url": ""
     }
+    ,"response_text":string;
 }
 
 

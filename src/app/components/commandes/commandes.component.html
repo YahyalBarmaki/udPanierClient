@@ -32,7 +32,9 @@
                     <div class="pro_product_wrap">
                         <ul>
                             <form [formGroup]="payForm">
-                                <div>Total à payer :<input type="number" formControlName="invoice.total_amount" readonly>
+                                <div formGroupName="invoice">
+                                    <div>Total à payer :<input type="number" formControlName="total_amount" readonly>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -42,7 +44,7 @@
                                     </div>
                                     <div class="col-12">
                                         <img src="assets/2payduny.png" alt="paydunyabutton" width="100%">
-                                        <button class="btn theme-bg btn-block">Effectuer
+                                        <button class="btn theme-bg btn-block" (click)="effectuerPaiement()">Effectuer
                                             le paiement</button>
                                     </div>
                                 </div>
