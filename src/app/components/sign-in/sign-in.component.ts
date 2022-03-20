@@ -76,12 +76,6 @@ export class SignInComponent implements OnInit {
       this.auth_service.signIn(this.signinForm.value)
         .subscribe((res) => {
           console.log(res)
-          this.erreurMessage =  false
-          //this.tl.setToken()
-          const jsonData = JSON.stringify(res)
-          const j =jsonData.split('.')[2]
-          localStorage.setItem("token", j);
-          console.log(j)
           this.router.navigate(['/dashboards']);
         },
           (error:HttpErrorResponse) => {
