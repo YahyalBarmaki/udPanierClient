@@ -1,93 +1,81 @@
 <app-header></app-header>
 
 <div class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 order-md-2">
-        <img src="assets/undraw_file_sync_ot38.svg" alt="Image"
-          class="img-fluid">
-      </div>
-      <div class="col-md-6 contents">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <div class="mb-4">
-              <h3> <strong>Se connecter</strong></h3>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                <img src="assets/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
             </div>
-            <form [formGroup]="signinForm">
-              <div class="form-group first">
-                <label for="email">Email</label>
-                <input
-                  formControlName="email"
-                  type="text" class="form-control"
-                  id="email">
-                <div *ngIf="fEmail.email.invalid && fEmail.email.touched">
-                  <small *ngIf="fEmail.email.errors?.required"
-                    class="text-danger">Primary
-                    email is required</small>
-                  <!--question mark(?) is a safe navigation operator-->
-                  <small *ngIf="fEmail.email.errors?.pattern"
-                    class="text-danger">Please
-                    provide a valid email address</small>
-                </div>
-              </div>
-              <div class="form-group last mb-4">
-                <label for="password">Password</label>
-                <input type="password" class="form-control"
-                  formControlName="password" id="password">
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3> <strong>Se connecter</strong></h3>
 
-                <div *ngIf="fEmail.password.invalid && fEmail.password.touched">
-                  <small *ngIf="fEmail.password.errors?.required"
-                    class="text-danger">Primary
+                        </div>
+                        <form [formGroup]="signinForm">
+                            <div class="form-group first">
+                                <label for="email">Email</label>
+                                <input formControlName="email" type="text" class="form-control" id="email">
+                                <div *ngIf="fEmail.email.invalid && fEmail.email.touched">
+                                    <small *ngIf="fEmail.email.errors?.required" class="text-danger">Primary
+                    email is required</small>
+                                    <!--question mark(?) is a safe navigation operator-->
+                                    <small *ngIf="fEmail.email.errors?.pattern" class="text-danger">Please
+                    provide a valid email address</small>
+                                </div>
+                            </div>
+                            <div class="form-group last mb-4">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" formControlName="password" id="password">
+
+                                <div *ngIf="fEmail.password.invalid && fEmail.password.touched">
+                                    <small *ngIf="fEmail.password.errors?.required" class="text-danger">Primary
                     password is required</small>
-                  <!--question mark(?) is a safe navigation operator-->
-                  <small *ngIf="fEmail.password.errors?.minlength"
-                    class="text-danger">
+                                    <!--question mark(?) is a safe navigation operator-->
+                                    <small *ngIf="fEmail.password.errors?.minlength" class="text-danger">
                     password must be at least 5 characters long.
                   </small>
-                </div>
-              </div>
-              <div class="col-12">
-                <span class="text-danger font-weight-normal"
-                  *ngIf="erreurMessage">{{authMessage}}</span>
-              </div>
-              <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <span class="text-danger font-weight-normal" *ngIf="erreurMessage">{{authMessage}}</span>
+                            </div>
+                            <div class="d-flex mb-5 align-items-center">
+                                <label class="control control--checkbox mb-0"><span
                     class="caption">se souvenir de moi</span>
                   <input type="checkbox" checked="checked" />
                   <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Mot de
+                                <span class="ml-auto"><a href="#" class="forgot-pass">Mot de
                     passe oublié</a></span>
-              </div>
-              <button type="submit" class="btn text-white btn-block btn-primary
-                bg-black"
-                (click)="login()">Se connecter</button>
+                            </div>
+                            <button type="submit" class="btn text-white btn-block btn-primary
+                bg-black" (click)="loginUser()">Se connecter</button>
 
-              <span class="d-block text-left my-4 text-muted"> <a
+                            <span class="d-block text-left my-4 text-muted"> <a
                   routerLink="../signUp">S'inscrire</a> </span>
-              <span class="d-block text-left my-4 text-muted">-----------Ou se
+                            <span class="d-block text-left my-4 text-muted">-----------Ou se
                 connecter
                 avec--------</span>
 
 
-              <div class="social-login">
+                            <div class="social-login">
 
-                <a class="facebook mr-2" (click)="loginWithFacebook()"
-                  type="button">
-                  <span class="icon-facebook mr-3"></span>
-                </a>
-                <a class="google" (click)="loginWithGoogle()" type="button">
-                  <span class="icon-google mr-3"></span>
-                </a>
-              </div>
-            </form>
-          </div>
+                                <a class="facebook mr-2" (click)="loginWithFacebook()" type="button">
+                                    <span class="icon-facebook mr-3"></span>
+                                </a>
+                                <a class="google" (click)="loginWithGoogle()" type="button">
+                                    <span class="icon-google mr-3"></span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-
-      </div>
-
     </div>
-  </div>
 </div>
 <app-footer></app-footer>

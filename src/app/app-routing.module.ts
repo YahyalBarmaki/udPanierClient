@@ -39,9 +39,9 @@ const routes: Routes = [
 },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'commande', component:CommandesComponent},
-  {path: 'designyourcart',component:DesignyourcartComponent},
+  {path: 'designyourcart',component:DesignyourcartComponent,canActivate: [AuthGuard]},
   {path: 'thankyou',component:ThankyouComponent},
-  {path: 'commande_plus',component:CommandePlusComponent},
+  {path: 'commande_plus',component:CommandePlusComponent,canActivate: [AuthGuard]},
   {path:'listproduit',component:ListProduitsComponent,
   canActivate: [AuthGuard] }
 ];

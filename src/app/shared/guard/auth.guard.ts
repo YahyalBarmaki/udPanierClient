@@ -22,20 +22,6 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
       const token = this.ts.getToken();
-
-      if (token) { 
-        /**Test */
-        console.log(token)
-        const tokenDecode = JSON.stringify(token)
-        const tokenDecodeToken =tokenDecode.split('.')[2]
-        console.log(tokenDecodeToken)
-        return true;
-
-        //const tokenDecode = JSON.parse(atob(token.split('.')[1]))
-        /* const tokenDecode = JSON.parse(atob(token))
-        const tokenDecode = atob(token) */
-        /* if(tokenDecode.isAdmin) */
-      }
       this.router.navigate(['/signIn'])
       return false;
 

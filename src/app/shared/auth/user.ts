@@ -3,7 +3,7 @@ export class User {
     username?: String;
     email?: String;
     password?: String;
-    token?:String;
+    accessToken?:String;
     isAdmin?:true;
     createDate?: String;
     phone?: String;

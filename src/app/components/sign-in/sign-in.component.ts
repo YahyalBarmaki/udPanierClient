@@ -24,6 +24,7 @@ export class SignInComponent implements OnInit {
   public password!: string;
   public error!: string;
   isLoggedIn = false;
+  authError = false;
   erreurMessage = false;
   errorMessage = '';
   authMessage="Votre email ou mot de passe est incorrect"
@@ -81,7 +82,7 @@ export class SignInComponent implements OnInit {
           (error:HttpErrorResponse) => {
             console.log(error);
             this.erreurMessage = true
-            if(error.status!== 400){
+            if(error.status!== 401){
                 this.authMessage = "Erreur au niveau du serveur, veillez ressayer plus tard s'il vous plait"
             }
           }
@@ -93,5 +94,42 @@ export class SignInComponent implements OnInit {
     }
 
   }
+  loginUser(){
+    if (this.signinForm.valid) {
+      this.auth_service.signLogin(this.fEmail.email.value, this.fEmail.password.value).subscribe(
+        (res)=>{
+          console.log(res);
+          this.authError = false;
+          this.tl.setToken(res.accessToken);
+          const token = this.tl.getToken();
 
+          if (token) {
+            console.log(token);
+            const tokenDecode = JSON.parse(atob(token.split('.')[1]));
+              console.log(tokenDecode.isAdmin);
+              if (tokenDecode.isAdmin) {
+                this.router.navigate(['/designyourcart'])
+              }
+              else{
+                this.router.navigate(['/dashboards'])
+              }
+            
+          }
+  
+        },  
+        (error:HttpErrorResponse) => {
+          console.log(error);
+          this.erreurMessage = true
+          if(error.status!== 400){
+              this.authMessage = "Erreur au niveau du serveur, veillez ressayer plus tard s'il vous plait"
+          }
+        }
+      )
+    }else {
+      alert("Password ou mail invalid")
+      this.router.navigate(['/signIn']);
+    }
+    
+    
+  }
 }
