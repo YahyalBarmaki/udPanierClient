@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Router } from '@angular/router';
 import { UserAuth } from './../../models/user';
 import { SocialUser } from 'angularx-social-login';
+import { environment } from 'src/environments/environment';
 
 const AUTH_API = 'https://card-ap.herokuapp.com/api/';
 
@@ -14,7 +15,7 @@ const AUTH_API = 'https://card-ap.herokuapp.com/api/';
 })
 
 export class AuthService {
-
+  private baseURL = environment.endpointBase
   constructor(
     private http: HttpClient,
     public router: Router
@@ -30,9 +31,13 @@ export class AuthService {
 
 
   signIn(body: any) {
-    return this.http.post(AUTH_API + 'login', body, {
+    return this.http.post(this.baseURL + 'api/login', body, {
       observe: 'body'
     })
+
+  }
+  signLogin(email: string, password: string):Observable<User>{
+    return this.http.post<User>(this.baseURL + 'api/login', { email, password})
 
   }
 
