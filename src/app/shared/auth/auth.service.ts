@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { UserAuth } from './../../models/user';
 import { SocialUser } from 'angularx-social-login';
 import { environment } from 'src/environments/environment';
+import { TokenStorageService } from './token-storage.service';
 
 const AUTH_API = 'https://card-ap.herokuapp.com/api/';
 
@@ -18,7 +19,8 @@ export class AuthService {
   private baseURL = environment.endpointBase
   constructor(
     private http: HttpClient,
-    public router: Router
+    public router: Router,
+    public lt: TokenStorageService
   ) {
   }
 
@@ -36,18 +38,25 @@ export class AuthService {
     })
 
   }
-  signLogin(email: string, password: string):Observable<User>{
+  /*signLogin(email: string, password: string):Observable<User>{
     return this.http.post<User>(this.baseURL + 'api/login', { email, password})
 
-  }
+  }*/
 
-
-  getToken() {
-    return localStorage.getItem('access_token');
+ signLogin(email: string, password: string):Observable<User>{
+    return this.http.post<User>(this.baseURL + 'api/login', { email, password})
+    /*.pipe(
+      map((token)=>{
+        //console.log(token);
+        this.lt.setToken(token.accessToken);
+        return token;
+      })
+    )*/
+    
   }
 
   get isLoggedIn(): boolean {
-    let authToken = localStorage.getItem('access_token');
+    let authToken = localStorage.getItem('jwtToken');
     return (authToken !== null) ? true : false;
   }
 

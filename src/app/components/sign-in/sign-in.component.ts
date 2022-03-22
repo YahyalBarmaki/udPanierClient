@@ -101,17 +101,20 @@ export class SignInComponent implements OnInit {
           console.log(res);
           this.authError = false;
           this.tl.setToken(res.accessToken);
-          const token = this.tl.getToken();
-
+          const token = this.tl.getToken('jwtToken');
+          //console.log(token);
           if (token) {
-            console.log(token);
+            
+            //console.log(token);
             const tokenDecode = JSON.parse(atob(token.split('.')[1]));
               console.log(tokenDecode.isAdmin);
+              
               if (tokenDecode.isAdmin) {
-                this.router.navigate(['/designyourcart'])
+                this.router.navigate(['dashboards'])
               }
               else{
-                this.router.navigate(['/dashboards'])
+                this.router.navigate(['designyourcart'])
+                
               }
             
           }

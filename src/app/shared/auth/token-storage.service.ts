@@ -13,7 +13,7 @@ export class TokenStorageService {
     localStorage.setItem(TOKEN,data)
   }
 
-  getToken(){
+  getToken(data){
     return localStorage.getItem(TOKEN)
   }
 
