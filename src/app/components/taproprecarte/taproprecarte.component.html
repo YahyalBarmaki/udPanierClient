@@ -5,15 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="div_form">
 
+                <h6>Démo d'un produit</h6>
+                <ul class="option">
 
+                    <li (click)="clickProfile()"><i class="fa fa-address-card" aria-hidden="true"></i> Profile
+                    </li>
+                </ul>
+
+                <ul class="change_option">
+                    <li><i class="fa fa-phone" aria-hidden="true"></i> Téléphone
+                    </li>
+                </ul>
+                <ul class="statistic">
+                    <li><i class="fa fa-globe" aria-hidden="true"></i> Web
+                    </li>
+                </ul>
+                <ul class="settings">
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>Adresse
+                    </li>
+                </ul>
+                <div>
+                    <ul class="scan-card">
+                        <i class="far fa-qrcode"></i>
+                        <p>Scanner ta carte</p>
+                    </ul>
+                    <ul class="achat-produit">
+                        <i class="far fa-qrcode"></i>
+                        <p>Acheter un produit</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="isProfile">
+
+                <p style=" color: #fff;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tenetur reprehenderit at rerum ipsam sint error, eum blanditiis delectus, illo ut ex dolore corporis similique expedita asperiores necessitatibus ad eos!</p>
             </div>
         </div>
     </div>

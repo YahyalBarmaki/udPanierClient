@@ -10,15 +10,116 @@ body {
 
 .div_form {
     max-width: 350px;
-    margin: 10px 5px auto;
-    padding: 100px 20px;
+    margin: 10px 5px 2px;
+    padding: 25px 20px;
     border-radius: 20px;
     position: relative;
     background: linear-gradient(135deg, #222 0%, #333 100%);
 }
 
+.div_form>h6 {
+    color: #fff;
+}
+
+ul.option {
+    width: 130px;
+    text-align: center;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 2px 20px;
+    color: #000;
+    font-weight: bolder;
+    position: relative;
+    left: -12px;
+    background-color: rgb(241, 223, 56);
+    box-shadow: 5px 5px 20px #000;
+    cursor: pointer;
+}
+
+ul.change_option {
+    width: 160px;
+    text-align: center;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 15px 160px;
+    position: relative;
+    top: -60px;
+    left: -12px;
+    color: #000;
+    font-weight: bolder;
+    background-color: rgb(241, 223, 56);
+    box-shadow: 5px 5px 20px #000;
+    cursor: pointer;
+}
+
+ul.statistic {
+    width: 160px;
+    text-align: center;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 15px 160px;
+    position: relative;
+    top: -60px;
+    left: -12px;
+    color: #000;
+    font-weight: bolder;
+    background-color: rgb(241, 223, 56);
+    box-shadow: 5px 5px 20px #000;
+    cursor: pointer;
+}
+
+ul.settings {
+    width: 135px;
+    text-align: center;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 15px 151px;
+    position: relative;
+    top: -118px;
+    left: -150px;
+    color: #000;
+    font-weight: bolder;
+    background-color: rgb(241, 223, 56);
+    box-shadow: 5px 5px 20px #000;
+    cursor: pointer;
+}
+
+.scan-card {
+    width: 130px;
+    border: 2px dashed #fff;
+    border-radius: 10px;
+    padding: 1px 15px;
+    margin: 1px 1px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.scan-card:hover,
+.achat-produit:hover {
+    opacity: 1;
+    border: 2px dashed #fff;
+    color: #fff;
+}
+
+.scan-card>p:hover,
+.achat-produit>p:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+.achat-produit {
+    width: 150px;
+    border: 2px dashed #fff;
+    border-radius: 10px;
+    position: relative;
+    right: -140px;
+    top: -94px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 480px) {
     form {
-        max-width: 480px;
+        max-width: 300px;
     }
 }
