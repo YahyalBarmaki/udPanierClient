@@ -12,8 +12,8 @@
 <body>
     <div class="row">
         <div class="col-md-6">
-            <div class="div_form">
 
+            <div class="div_form" *ngIf="isDemo">
                 <h6>Démo d'un produit</h6>
                 <ul class="option">
 
@@ -22,15 +22,15 @@
                 </ul>
 
                 <ul class="change_option">
-                    <li><i class="fa fa-phone" aria-hidden="true"></i> Téléphone
+                    <li (click)="clickTel()"><i class="fa fa-phone" aria-hidden="true"></i> Téléphone
                     </li>
                 </ul>
                 <ul class="statistic">
-                    <li><i class="fa fa-globe" aria-hidden="true"></i> Web
+                    <li (click)="clickWeb()"><i class="fa fa-globe" aria-hidden="true"></i> Web
                     </li>
                 </ul>
                 <ul class="settings">
-                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>Adresse
+                    <li (click)="clickAddr()"><i class="fa fa-map-marker" aria-hidden="true"></i>Adresse
                     </li>
                 </ul>
                 <div>
@@ -46,10 +46,160 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div *ngIf="isProfile">
-
-                <p style=" color: #fff;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tenetur reprehenderit at rerum ipsam sint error, eum blanditiis delectus, illo ut ex dolore corporis similique expedita asperiores necessitatibus ad eos!</p>
+            <div class="bou">
+                <i (click)="back()" *ngIf="isShow" class="fa fa-arrow-left" aria-hidden="true" style="color: #fff;font-size: 30px;cursor: pointer;"></i>
             </div>
+            <form [formGroup]="designData">
+                <div *ngIf="isProfile">
+                    <div>
+                        <h4 class="text-center" style="color: #fff;">Info Personnelle</h4>
+                        <header class="text-white text-center">
+                            <img src="https://www.pinclipart.com/picdir/big/533-5339753_profile-icon-clipart-png-download.png" alt="" width="150" class="mb-4">
+                        </header>
+                        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                            <input accept="image/*" (change)="onImageUpload($event)" type="file" class="form-control border-0">
+                            <label id="upload-label" for="upload" class="font-weight-light text-muted"></label>
+                            <div class="col-2">
+                                <img [src]="imageDisplay" style="width:100%;border-radius:50%">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="prenom">Prénom</label>
+                            <input formControlName="prenom" type="text" class="form-control rounded-pill bg-white shadow-sm" id="prenom" aria-describedby="prenom" placeholder="Prénom">
+                        </div>
+                        <div class="form-group ">
+                            <label for="prenom">Nom</label>
+                            <input formControlName="nom" type="text" class="form-control rounded-pill bg-white shadow-sm" id="nom" aria-describedby="nom" placeholder="nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="entreprise">Entreprise</label>
+                            <input formControlName="entreprise" type="text" class="form-control rounded-pill bg-white shadow-sm" id="entreprise" aria-describedby="entreprise" placeholder="entreprise">
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Poste</label>
+                            <input formControlName="poste" type="text" class="form-control rounded-pill bg-white shadow-sm" id="poste" placeholder="poste">
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Birthday</label>
+                            <input formControlName="birthday" type="date" class="form-control rounded-pill bg-white shadow-sm" id="birthday" placeholder="Birthday">
+                        </div>
+
+                        <h4 class="text-center" style="color: #fff;">Couleur</h4>
+                        <div class="form-group">
+                            <label for="backgroundColor">Background Couleur</label>
+                            <input formControlName="backgroundCouleur" value="#f66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="backgroundCouleur" placeholder="backgroundCouleur">
+                        </div>
+                        <div class="form-group">
+                            <label for="Couleur Texte">Couleur Texte</label>
+                            <input formControlName="couleurText" value="#e57765" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurText" placeholder="Couleur Texte">
+                        </div>
+                        <div class="form-group">
+                            <label for="couleuSurligner">Couleur Surligner</label>
+                            <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isTel">
+                    <h4 class="text-center" style="color: #fff;">Phone</h4>
+                    <div class="form-group">
+                        <label for="nom">Home</label>
+                        <input formControlName="numHome" type="text" class="form-control rounded-pill bg-white shadow-sm" id="office" placeholder="home">
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Office</label>
+                        <input formControlName="numOffice" type="text" class="form-control rounded-pill bg-white shadow-sm" id="office" placeholder="office">
+                    </div>
+                    <div class="form-group">
+                        <label for="cell">Cell</label>
+                        <input formControlName="numCell" type="text" class="form-control rounded-pill bg-white shadow-sm" id="entreprise" placeholder="cell">
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Office Fax</label>
+                        <input formControlName="numOfficeFax" type="text" class="form-control rounded-pill bg-white shadow-sm" id="officeFax" placeholder="office Fax">
+                    </div>
+                    <h4 class="text-center" style="color: #fff;">Couleur</h4>
+                    <div class="form-group">
+                        <label for="backgroundColor">Background Couleur</label>
+                        <input formControlName="backgroundCouleur" value="#f66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="backgroundCouleur" placeholder="backgroundCouleur">
+                    </div>
+                    <div class="form-group">
+                        <label for="Couleur Texte">Couleur Texte</label>
+                        <input formControlName="couleurText" value="#e57765" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurText" placeholder="Couleur Texte">
+                    </div>
+                    <div class="form-group">
+                        <label for="couleuSurligner">Couleur Surligner</label>
+                        <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
+                    </div>
+                </div>
+                <div *ngIf="isAddr">
+                    <h4 class="text-center" style="color: #fff;">Home Adresse</h4>
+                    <div class="form-group">
+                        <label for="rue">Rue</label>
+                        <input formControlName="rue" type="text" class="form-control rounded-pill bg-white shadow-sm" id="rue" placeholder="Rue">
+                    </div>
+                    <div class="form-group">
+                        <label for="codePostal">Code Postal</label>
+                        <input formControlName="email2" type="text" class="form-control rounded-pill bg-white shadow-sm" id="codePostal" placeholder="Email 2">
+                    </div>
+                    <div class="form-group">
+                        <label for="ville">Ville</label>
+                        <input formControlName="ville" type="text" class="form-control rounded-pill bg-white shadow-sm" id="ville" placeholder="Ville">
+                    </div>
+                    <div class="form-group">
+                        <label for="station">Station</label>
+                        <input formControlName="station" type="text" class="form-control rounded-pill bg-white shadow-sm" id="station" placeholder="Station">
+                    </div>
+                    <div class="form-group">
+                        <label for="pays">Pays</label>
+                        <input formControlName="pays" type="text" class="form-control rounded-pill bg-white shadow-sm" id="pays" placeholder="Pays">
+                    </div>
+                    <h4 class="text-center" style="color: #fff;">Couleur</h4>
+                    <div class="form-group">
+                        <label for="backgroundColor">Background Couleur</label>
+                        <input formControlName="backgroundCouleur" value="#f66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="backgroundCouleur" placeholder="backgroundCouleur">
+                    </div>
+                    <div class="form-group">
+                        <label for="Couleur Texte">Couleur Texte</label>
+                        <input formControlName="couleurText" value="#e57765" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurText" placeholder="Couleur Texte">
+                    </div>
+                    <div class="form-group">
+                        <label for="couleuSurligner">Couleur Surligner</label>
+                        <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
+                    </div>
+                </div>
+                <div *ngIf="isWeb">
+                    <h4 class="text-center" style="color:#fff">Web</h4>
+                    <div class="form-group">
+                        <label for="email">Email 1</label>
+                        <input formControlName="email1" type="email" class="form-control rounded-pill bg-white shadow-sm" id="email1" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email 2</label>
+                        <input formControlName="email2" type="email" class="form-control rounded-pill bg-white shadow-sm" id="email2" placeholder="Email 2">
+                    </div>
+                    <div class="form-group">
+                        <label for="web1">Web 1</label>
+                        <input formControlName="web1" type="text" class="form-control rounded-pill bg-white shadow-sm" id="web1" placeholder="web1">
+                    </div>
+                    <div class="form-group">
+                        <label for="web2">Web 2</label>
+                        <input formControlName="web2" type="text" class="form-control rounded-pill bg-white shadow-sm" id="web2" placeholder="Web 2">
+                    </div>
+                    <h4 class="text-center" style="color: #fff;">Couleur</h4>
+                    <div class="form-group">
+                        <label for="backgroundColor">Background Couleur</label>
+                        <input formControlName="backgroundCouleur" value="#f66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="backgroundCouleur" placeholder="backgroundCouleur">
+                    </div>
+                    <div class="form-group">
+                        <label for="Couleur Texte">Couleur Texte</label>
+                        <input formControlName="couleurText" value="#e57765" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurText" placeholder="Couleur Texte">
+                    </div>
+                    <div class="form-group">
+                        <label for="couleuSurligner">Couleur Surligner</label>
+                        <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
