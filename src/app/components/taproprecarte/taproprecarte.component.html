@@ -97,6 +97,8 @@
                             <label for="couleuSurligner">Couleur Surligner</label>
                             <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
                         </div>
+                        <button type="submit" class="btn btn-success mx-2" (click)="createYourCard()">Créez</button>
+
                     </div>
                 </div>
                 <div *ngIf="isTel">
@@ -130,6 +132,8 @@
                         <label for="couleuSurligner">Couleur Surligner</label>
                         <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
                     </div>
+                    <button type="submit" class="btn btn-success mx-2" (click)="createYourCard()">Créez</button>
+
                 </div>
                 <div *ngIf="isAddr">
                     <h4 class="text-center" style="color: #fff;">Home Adresse</h4>
@@ -166,8 +170,11 @@
                         <label for="couleuSurligner">Couleur Surligner</label>
                         <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
                     </div>
+                    <button type="submit" class="btn btn-success mx-2" (click)="createYourCard()">Créez</button>
+
                 </div>
                 <div *ngIf="isWeb">
+
                     <h4 class="text-center" style="color:#fff">Web</h4>
                     <div class="form-group">
                         <label for="email">Email 1</label>
@@ -198,7 +205,9 @@
                         <label for="couleuSurligner">Couleur Surligner</label>
                         <input formControlName="couleurSurligner" value="#e66465" type="color" class="form-control rounded-pill bg-white shadow-sm" id="couleurSurligner" placeholder="Couleu Surligner">
                     </div>
+                    <button type="submit" class="btn btn-success mx-2" (click)="createYourCard()">Créez</button>
                 </div>
+
             </form>
         </div>
     </div>
