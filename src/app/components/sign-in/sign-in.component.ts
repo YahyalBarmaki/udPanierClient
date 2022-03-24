@@ -54,12 +54,16 @@ export class SignInComponent implements OnInit {
   /**
    * Social login
    */
+  
   loginWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
       localStorage.setItem('google_auth', JSON.stringify(data));
-      this.router.navigateByUrl('/profile').then();
+      this.router.navigateByUrl('/taproprecarte').then();
     });
   }
+
+ 
+
   loginWithFacebook() {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
       localStorage.setItem('facebook_auth', JSON.stringify(data));
@@ -71,6 +75,7 @@ export class SignInComponent implements OnInit {
   }
   get fEmail() { return this.signinForm.controls; }
 
+  /*
   login() {
     console.log(this.signinForm.value);
     if (this.signinForm.valid) {
@@ -94,6 +99,8 @@ export class SignInComponent implements OnInit {
     }
 
   }
+*/
+
   loginUser(){
     if (this.signinForm.valid) {
       this.auth_service.signLogin(this.fEmail.email.value, this.fEmail.password.value).subscribe(
@@ -113,7 +120,7 @@ export class SignInComponent implements OnInit {
                 this.router.navigate(['dashboards'])
               }
               else{
-                this.router.navigate(['designyourcart'])
+                this.router.navigate(['taproprecarte'])
                 
               }
             
@@ -135,4 +142,5 @@ export class SignInComponent implements OnInit {
     
     
   }
+  
 }

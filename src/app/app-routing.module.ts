@@ -24,7 +24,7 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 
 const routes: Routes = [
   
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'commande', component:CommandesComponent},
   {path: 'designyourcart',component:DesignyourcartComponent,canActivate: [AuthGuard]},
   {path: 'thankyou',component:ThankyouComponent},
-  {path: 'taproprecarte',component:TaproprecarteComponent},
+  {path: 'taproprecarte',component:TaproprecarteComponent,canActivate: [AuthGuard]},
   {path: 'commande_plus',component:CommandePlusComponent,canActivate: [AuthGuard]},
   {path:'listproduit',component:ListProduitsComponent,
   canActivate: [AuthGuard] }
