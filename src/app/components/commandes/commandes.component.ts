@@ -77,27 +77,23 @@ export class CommandesComponent implements OnInit {
 
     this.numbetItem();
     this.cartFunction();
+    this.numbetItem();
     console.log(this.getTotal());
     console.log('object');
     console.log(this.getTotalPrice());
     console.log(this.payForm);
     console.log("test");
     this.payForm.get("invoice.total_amount")?.setValue(this.getTotalPrice());
-    
-
   }
+  
   getTotal(): number {
-    //this.totalPrice = 0;
     this.total = 0;
-    this.tqtite = 0;
     console.log(this.cartItemArray);
     this.cartItemArray.forEach((element) => {
-      this.total += (element.price * element.qtite);
-
+      this.total = (element.price * element.qtite);
       localStorage.setItem('total', JSON.stringify(this.total));
       this.title = element.title
     })
-
     return this.total;
   }
   cartItem:number = 0;
@@ -115,13 +111,9 @@ export class CommandesComponent implements OnInit {
     console.log(this.totalPrice);
     return this.totalPrice;
   }
-/* totalPrice(){
-  localStorage.setItem('total', JSON.stringify(this.total));
- }*/
   cartFunction(){
     if (localStorage.getItem('Cart')) {
       this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
-
     } 
   }
   nbrePanier:number = 0;

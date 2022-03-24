@@ -42,7 +42,6 @@ export class CartIconComponent implements OnInit {
   cartFunction(){
     if (localStorage.getItem('Cart')) {
       this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
-
     } 
   }
   nbrePanier:number = 0;

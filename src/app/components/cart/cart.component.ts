@@ -14,6 +14,11 @@ import { ProductService } from 'src/app/shared/services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  carts: any = [];
+  total: number = 0;
+  cartTotal = 0;
+  cartItemArray:any= [];
+
   cartDatas!: any;
   public tqtite!:any;
   public totalPrice!:any;
@@ -23,10 +28,10 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   productId!: Number;
   qtite!: number;
-  cartItemArray:any= [];
+  //cartItemArray:any= [];
 
-  carts: ProductsEntreprise[] = [];
-  total: number = 0;
+  //carts: ProductsEntreprise[] = [];
+  //total: number = 0;
 
 
   constructor(private titleService: Title,
@@ -36,14 +41,20 @@ export class CartComponent implements OnInit {
     private productService: ProductService,
     private toast: ToastrService
     ) {
+      this.cardService.cartSubject.subscribe((data)=>{
+        this.cartItem = data;
+      });
     this.titleService.setTitle("Cart");
   }
-  cartTotal = 0;
+  //cartTotal = 0;
   quantite = 1;
   ngOnInit(): void {
 
     this.getTotal()
     this.cartFunction()
+    console.log(this.cartFunction())
+    console.log("first")
+    this.numbetItem()
 
   }
   getCartProductItems() {
@@ -89,20 +100,24 @@ export class CartComponent implements OnInit {
     }
     this.getTotal();
   }
-
+  cartItem:number = 0;
+  numbetItem(){
+    if(localStorage.getItem('Cart') != null){
+      var cpt = JSON.parse(localStorage.getItem('Cart') || "") ;
+      this.cartItem = cpt.length;
+    }
+  }
   getTotal(): number {
     this.totalPrice = 0;
     this.total = 0;
     this.tqtite = 0;
     this.cartItemArray.forEach((element) => {
       this.total += (element.price * element.qtite);
-      this.tqtite += element.qtite;
-      this.totalPrice += (element.price * this.tqtite);
       console.log(this.tqtite);
       console.log(this.totalPrice)
     })
-    localStorage.setItem('totalPrice', JSON.stringify(this.totalPrice));
-    return this.totalPrice;
+    localStorage.setItem('totalPrice', JSON.stringify(this.total));
+    return this.total;
   }
 
 
