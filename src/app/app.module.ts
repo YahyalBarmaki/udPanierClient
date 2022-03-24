@@ -44,6 +44,7 @@ import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { CommandePlusComponent } from './components/commande-plus/commande-plus.component';
 import { ListProduitsComponent } from './adminComponents/list-produits/list-produits.component';
 import { ProduitsComponent } from './adminComponents/produits/produits.component';
+import { TaproprecarteComponent } from './components/taproprecarte/taproprecarte.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { ProduitsComponent } from './adminComponents/produits/produits.component
     CommandePlusComponent,
     ListProduitsComponent,
     ProduitsComponent,
+    TaproprecarteComponent,
 
   ],
   imports: [

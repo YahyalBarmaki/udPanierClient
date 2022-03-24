@@ -14,6 +14,7 @@ import { DetailsProductComponent } from './components/products/details-product/d
 import { ProductsComponent } from './components/products/products.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { TaproprecarteComponent } from './components/taproprecarte/taproprecarte.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 
@@ -22,8 +23,13 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 
 
 const routes: Routes = [
+<<<<<<< HEAD
 
   { path: '', redirectTo: 'home', pathMatch: '' },
+=======
+  
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+>>>>>>> f10f9323694bb6b84e47f9030ca2dc19ca6d39bf
   { path: 'home', component: HomeComponent },
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
@@ -41,6 +47,7 @@ const routes: Routes = [
   { path: 'commande', component:CommandesComponent},
   {path: 'designyourcart',component:DesignyourcartComponent,canActivate: [AuthGuard]},
   {path: 'thankyou',component:ThankyouComponent},
+  {path: 'taproprecarte',component:TaproprecarteComponent,canActivate: [AuthGuard]},
   {path: 'commande_plus',component:CommandePlusComponent,canActivate: [AuthGuard]},
   {path:'listproduit',component:ListProduitsComponent,
   canActivate: [AuthGuard] }

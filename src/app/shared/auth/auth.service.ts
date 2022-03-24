@@ -45,13 +45,6 @@ export class AuthService {
 
  signLogin(email: string, password: string):Observable<User>{
     return this.http.post<User>(this.baseURL + 'api/login', { email, password})
-    /*.pipe(
-      map((token)=>{
-        //console.log(token);
-        this.lt.setToken(token.accessToken);
-        return token;
-      })
-    )*/
     
   }
 

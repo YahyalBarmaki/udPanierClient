@@ -43,9 +43,9 @@ export class CommandesComponent implements OnInit {
         name: new FormControl('')
       }),
       actions: new FormGroup({
-        cancel_url: new FormControl('http://localhost:4200/products'),
-        return_url: new FormControl('http://localhost:4200/thankyou'),
-        callback_url: new FormControl('http://localhost:4200/thankyou')
+        cancel_url: new FormControl('http://cart-ud.usinedigitale.org/products'),
+        return_url: new FormControl('http://cart-ud.usinedigitale.org/thankyou'),
+        callback_url: new FormControl('http://cart-ud.usinedigitale.org/thankyou')
       })
       
     })
