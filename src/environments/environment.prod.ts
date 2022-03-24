@@ -1,7 +1,10 @@
 export const environment = {
   production: true,
   endpoint: 'https://card-ap.herokuapp.com/product',
-  endpointOrder: 'http://localhost:5000/order'
+  endpointOrder: 'https://card-ap.herokuapp.com/order',
+  endpointBase: 'https://card-ap.herokuapp.com/',
+  endpointShipping: 'https://card-ap.herokuapp.com/customer',
+
   /* firebase: {
     apiKey: "AIzaSyC5NCOHiOdC53d6hOD5HRub2L6yyDLtFXg",
     authDomain: "cart-37ca0.firebaseapp.com",
