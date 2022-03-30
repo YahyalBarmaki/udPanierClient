@@ -54,15 +54,65 @@ export class SignInComponent implements OnInit {
   /**
    * Social login
    */
-  
+  /*
   loginWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
       localStorage.setItem('google_auth', JSON.stringify(data));
       this.router.navigateByUrl('/taproprecarte').then();
     });
   }
-
+*/
  
+  loginWithGoogle(): void {
+    console.log("Hello")
+    this.auth_service.socialRegester().subscribe(
+      (res)=>{
+        console.log(res)
+      }
+    )
+    /*this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.authState.subscribe(
+      (res)=>{
+        if (this.signinForm.valid) {
+          this.auth_service.signLogin(this.fEmail.email.value, this.fEmail.password.value).subscribe(
+            (res)=>{
+              console.log(res);
+              this.authError = false;
+              this.tl.setToken(res.accessToken);
+              const token = this.tl.getToken('jwtToken');
+              //console.log(token);
+              if (token) {
+                
+                //console.log(token);
+                const tokenDecode = JSON.parse(atob(token.split('.')[1]));
+                  console.log(tokenDecode.isAdmin);
+                  
+                  if (tokenDecode.isAdmin) {
+                    this.router.navigate(['dashboards'])
+                  }
+                  else{
+                    this.router.navigate(['taproprecarte'])
+                    
+                  }
+                
+              }
+      
+            },  
+            (error:HttpErrorResponse) => {
+              console.log(error);
+              this.erreurMessage = true
+              if(error.status!== 400){
+                  this.authMessage = "Erreur au niveau du serveur, veillez ressayer plus tard s'il vous plait"
+              }
+            }
+          )
+        }else {
+          alert("Password ou mail invalid")
+          this.router.navigate(['/signIn']);
+        }
+      }
+    )*/
+  }
 
   loginWithFacebook() {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
