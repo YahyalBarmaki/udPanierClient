@@ -24,12 +24,12 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 
 const routes: Routes = [
 
-
+  { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  
 
   { path: 'home', component: HomeComponent },
+
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   //{ path: 'cart', component: CartComponent },
@@ -54,7 +54,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
