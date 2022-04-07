@@ -22,7 +22,6 @@ import { GraphQLModule } from './graphql.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
-import { HomeAdminPanelComponent } from './components/admin-panel/home-admin-panel/home-admin-panel.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductsItemComponent } from './components/products/products-item/products-item.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
@@ -62,7 +61,6 @@ import { TaproprecarteComponent } from './components/taproprecarte/taproprecarte
     CompatibilityComponent,
     HappyCustomersComponent,
     UserProfilComponent,
-    HomeAdminPanelComponent,
     DashboardComponent,
     ProductsItemComponent,
     CartItemComponent,

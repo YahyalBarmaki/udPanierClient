@@ -16,21 +16,10 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private countService: CountService
-    //private token: AuthService
   ) {
   }
 
   ngOnInit(): void {
-    const storageSocial = localStorage.getItem('google_auth');
-
-    const currentUserAccess = localStorage.getItem('access_token');
-    if (storageSocial) {
-      this.userDetails = JSON.parse(storageSocial);
-    }
-    if (currentUserAccess) {
-      this.currentUser = JSON.parse(currentUserAccess)
-
-    }
     combineLatest([
       this.countService.getProductCount(),
       this.countService.getUserCount(),

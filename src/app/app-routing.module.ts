@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListProduitsComponent } from './adminComponents/list-produits/list-produits.component';
-import { HomeAdminPanelComponent } from './components/admin-panel/home-admin-panel/home-admin-panel.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CommandePlusComponent } from './components/commande-plus/commande-plus.component';
@@ -34,7 +33,6 @@ const routes: Routes = [
   { path: 'signUp', component: SignUpComponent },
   //{ path: 'cart', component: CartComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'admin-panel-home', component: HomeAdminPanelComponent },
   { path: 'profile', component: UserProfilComponent },
   //{ path: 'product/:id', component: DetailsProductComponent },
   { path: 'detailsProduct', component: DetailsProductComponent },

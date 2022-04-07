@@ -28,10 +28,7 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   productId!: Number;
   qtite!: number;
-  //cartItemArray:any= [];
-
-  //carts: ProductsEntreprise[] = [];
-  //total: number = 0;
+  
 
 
   constructor(private titleService: Title,
