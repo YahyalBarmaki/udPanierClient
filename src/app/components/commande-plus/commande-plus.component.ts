@@ -33,12 +33,7 @@ export class CommandePlusComponent implements OnInit {
    public adresseName:any = 'isAdresseVisible'
    public couleurName:any = 'isCouleurVisible'
 
-   /**Disabled or enabled */
-   /* public email = "";
-   public phone = "";
-   public web= "";
-   public adresse = "";
-   public couleur="" */
+
   /** Design Your Variable **/
   public image!: String;
   public prenom!: String;
@@ -174,7 +169,6 @@ export class CommandePlusComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       this.designData.patchValue({ image: file });
-      //this.designData.get('image').updateValueAndValidity();
       const fileReader = new FileReader();
       fileReader.onload = (event: any) =>{
         this.imageDisplay = event.target.result;
@@ -184,18 +178,12 @@ export class CommandePlusComponent implements OnInit {
   }
   createYourCard(){
 
-    /* console.log(this.designForm.value);
-    console.log(this.designForm.valid); */
     if (this.designData.invalid) {
       console.log("error");
       return;
     }
     const designCardFormData = new FormData();
-  /*   Object.keys(this.designData).map((key) =>{
-      console.log(key);
-      console.log(this.designData[key].value);
-      designCardFormData.append(key, this.designData[key].value)
-    }) */
+ 
     console.log(this.designCardForm);
 
     designCardFormData.append('image',this.designCardForm.image.value)

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { CountService } from 'src/app/shared/services/count.service';
-//import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
