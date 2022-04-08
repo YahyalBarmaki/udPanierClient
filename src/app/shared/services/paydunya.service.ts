@@ -8,9 +8,9 @@ import { environment } from 'src/environments/environment';
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      "PAYDUNYA-MASTER-KEY": "VpDhKUiS-oyzR-D4ml-U6ft-YA7cDdVpDII0",
-      "PAYDUNYA-PRIVATE-KEY": "test_private_mMDiJp1K4ucMA5ZBI5y9cEcjvOr",
-      "PAYDUNYA-TOKEN": "v34SQ2YXPBqNZpGjhwNW"
+      "PAYDUNYA-MASTER-KEY": "X7BAbgUo-lZ7X-mwUh-jZxS-Tshr5mrcM6wM",
+      "PAYDUNYA-PRIVATE-KEY": "live_private_2gVHlrhKv7F7cXEPRQ0sMDYQK0o",
+      "PAYDUNYA-TOKEN": "x26vOVMnTrQCE535aEN6"
      } )
   }
 @Injectable({
