@@ -30,9 +30,9 @@
                             <li><i class="ti-location-pin"></i> Almadies lot 106 Résidende Kastelle
                             </li>
                             <li><i class="ti-alarm-clock"></i> <a href="#">24h/24h</a></li>
-                            <li><i class="ti-user"></i> <a [routerLink]="['user-profile/id']">Mon
+                            <li><i class="ti-user"></i> <a routerLink='/signIn'>Mon
                   compte</a></li>
-                            <li *ngIf="!this.authService.isLoggedIn"><i class="ti-power-off"></i><a [routerLink="['signIn']">Se connecter</a></li>
+                            <li *ngIf="!this.authService.isLoggedIn"><i class="ti-power-off"></i><a routerLink='/signIn'>Se connecter</a></li>
                             <li *ngIf="this.authService.isLoggedIn"><i class="ti-power-off"></i><a (click)="logout()">Se deconnecter</a></li>
                         </ul>
                     </div>

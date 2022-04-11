@@ -1,182 +1,189 @@
 .sectionBanner .contentWrappper .bannerTitle {
-  font-weight: 700;
-  text-transform: uppercase;
-  max-width: 595 px;
-  font-size: 67px;
-  line-height: 75px;
-  color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: 595 px;
+    font-size: 67px;
+    line-height: 75px;
+    color: #fff;
 }
 
 .sectionBanner {
-  background-color: #000;
-  padding: 0 0 60px;
+    background-color: #000;
+    padding: 0 0 60px;
 }
 
 .sectionBanner .contentWrappper {
-  color: #fff;
-  padding: 100px 0 0 !important;
+    color: #fff;
+    padding: 100px 0 0 !important;
 }
 
 .share-info-gif {
-  max-width: 350px;
+    max-width: 350px;
 }
 
 .sectionBanner .contentWrappper .bannerText {
-  max-width: 500px;
-  margin: 20px 0 30px;
-  font-size: 16px;
-  line-height: 24px;
+    max-width: 500px;
+    margin: 20px 0 30px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .sectionBanner .contentWrappper .reviewWrapper .reviewText {
-  font-size: 14px;
-  color: #fff;
-  margin-left: 10px;
+    font-size: 14px;
+    color: #fff;
+    margin-left: 10px;
 }
 
 .custom-btn {
-  background-color: #f7bc44;
-  color: #000;
-  width: -moz-max-content;
-  width: -webkit-max-content;
-  width: -o-max-content;
-  width: -ms-max-content;
-  display: inline-flex;
-  align-items: center;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 6px;
-  line-height: normal;
-  letter-spacing: 1px;
-  font-size: 14px;
-  padding: 22px 38px 25px 40px;
-  text-decoration: none;
+    background-color: #f7bc44;
+    color: #000;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    width: -o-max-content;
+    width: -ms-max-content;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 6px;
+    line-height: normal;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 22px 38px 25px 40px;
+    text-decoration: none;
 }
 
-.custom-btn:active, .custom-btn:focus, .custom-btn:hover, button:active, button:focus, button:hover {
-  outline: 0;
-  opacity: 1;
+.custom-btn:active,
+.custom-btn:focus,
+.custom-btn:hover,
+button:active,
+button:focus,
+button:hover {
+    outline: 0;
+    opacity: 1;
 }
 
-a:active, a:focus, a:hover {
-  text-decoration: none;
-  color: #fff;
+a:active,
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: #fff;
 }
 
 .sectionBanner .contentWrappper .btnWrapper .playIcon img {
-  margin-right: 15px;
-  max-width: 15px;
+    margin-right: 15px;
+    max-width: 15px;
 }
 
 .sectionBanner .contentWrappper .btnWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .sectionBanner .contentWrappper .btnWrapper .playIcon {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: 1px;
-  font-weight: 700;
-  font-size: 14px !important;
-  margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 14px !important;
+    margin-left: 40px;
 }
 
 .sectionWhyUs {
-  background-color: #fff;
-  padding: 70px 0 90px;
+    background-color: #fff;
+    padding: 70px 0 90px;
 }
 
 .sectionTitle {
-  color: #000;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 46px;
-  line-height: 50px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 50px;
 }
 
 .sectionSubtitle {
-  color: #f7bc44;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 30px;
+    color: #f7bc44;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 30px;
 }
 
 .sectionWhyUs .sectionSubtitle {
-  margin: 25px auto 0;
-  max-width: 720px;
+    margin: 25px auto 0;
+    max-width: 720px;
 }
 
 .sectionWhyUs .rowWrapper .contentWrapper .title {
-  font-weight: 600;
-  font-size: 21px;
-  margin: 30px 0 25px;
+    font-weight: 600;
+    font-size: 21px;
+    margin: 30px 0 25px;
 }
 
 .sectionWhyUs .rowWrapper .contentWrapper .text {
-  margin: 0 auto;
-  font-size: 14px;
-  max-width: 323px;
-  line-height: 1.5;
+    margin: 0 auto;
+    font-size: 14px;
+    max-width: 323px;
+    line-height: 1.5;
 }
 
 .sectionWhyUs .rowWrapper .contentWrapper {
-  text-align: center;
-  margin: 0 0 60px;
+    text-align: center;
+    margin: 0 0 60px;
 }
+
+
 /*
 hover
 **/
+
 .imgWrapper * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 .imgWrapper {
-	position: relative;
-	display: inline-block;
-	overflow: hidden;
-	max-width: 100%;
-	height: auto;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
 }
+
 .imgWrapper img {
-	max-width: 100%;
+    max-width: 100%;
 }
+
 .imgWrapper .lazyloaded {
-	display: block;
+    display: block;
 }
+
 .imgWrapper .hover-content {
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.6);
-	color: #fff;
-	padding: 50px;
-	-moz-transition: all 0.4s ease-in-out 0s;
-	-webkit-transition: all 0.4s ease-in-out 0s;
-	-ms-transition: all 0.4s ease-in-out 0s;
-	transition: all 0.4s ease-in-out 0s;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 35px;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -ms-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
 }
+
 .imgWrapper:hover .hover-content,
 .imgWrapper.active .hover-content {
-	opacity: 1;
+    opacity: 1;
 }
-.hvrbox .text {
-	text-align: center;
-	font-size: 18px;
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-moz-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+
+.text {
+    padding: 25px auto;
+    color: #fff;
 }

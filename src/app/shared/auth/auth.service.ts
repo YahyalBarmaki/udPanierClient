@@ -8,16 +8,11 @@ import { UserAuth } from './../../models/user';
 import { SocialUser } from 'angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { TokenStorageService } from './token-storage.service';
-
 const AUTH_API = 'https://card-ap.herokuapp.com/api/';
+const AUTH_API_LOCAL = 'http://localhost:5000/';
 const AUTH_SOCIAL ='https://card-ap.herokuapp.com/api/google'
 const httpOptions : any    = {
-  headers: new HttpHeaders({
-    //'Content-Type':  'application/json',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Origin': '*'
-  })
+  headers: new HttpHeaders()
 };
 @Injectable({
   providedIn: 'root'
@@ -55,8 +50,8 @@ export class AuthService {
     return this.http.post<User>(this.baseURL + 'api/login', { email, password})
     
   }
- socialRegester(){
-   return this.http.get(AUTH_SOCIAL,httpOptions)
+ socialRegister(body:any){
+    return this.http.post(this.baseURL+'apiSocial/createSocialRegister',body)
  }
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('jwtToken');

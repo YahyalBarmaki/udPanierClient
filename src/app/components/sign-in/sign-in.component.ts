@@ -8,7 +8,6 @@ import { TokenStorageService } from 'src/app/shared/auth/token-storage.service';
 import { UserAuth } from './../../models/user';
 import { first } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-TokenStorageService
 /**
  * Social login
  */
@@ -54,23 +53,43 @@ export class SignInComponent implements OnInit {
   /**
    * Social login
    */
-  /*
+  socialForm = new FormGroup({
+    email: new FormControl("",[Validators.required]),
+    name: new FormControl("",[Validators.required]),
+    photoUrl: new FormControl("",[Validators.required]),
+    firstName: new FormControl("",[Validators.required]),
+    lastName: new FormControl("",[Validators.required])
+  })
+
   loginWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
       localStorage.setItem('google_auth', JSON.stringify(data));
       this.router.navigateByUrl('/taproprecarte').then();
+      const getData = JSON.parse(localStorage.getItem('google_auth') || "") ;
+    this.socialForm.get("email")?.setValue(getData.email);
+    this.socialForm.get("name")?.setValue(getData.name);
+    this.socialForm.get("photoUrl")?.setValue(getData.photoUrl);
+    this.socialForm.get("firstName")?.setValue(getData.firstName);
+    this.socialForm.get("lastName")?.setValue(getData.lastName);
+      if (this.socialForm.valid) {
+        this.auth_service.socialRegister(this.socialForm.value)
+        .subscribe((res)=>{
+          console.log(res);
+        })
+      }
+      console.log(getData.email);
+      console.log(getData.name);
+      console.log(getData.photoUrl);
+      console.log(getData.firstName);
+      console.log(getData.lastName);
     });
   }
-*/
+
  
-  loginWithGoogle(): void {
-    console.log("Hello")
-    this.auth_service.socialRegester().subscribe(
-      (res)=>{
-        console.log(res)
+  /*loginWithGoogle(): void { console.log("Hello") this.auth_service.socialRegester().subscribe( (res)=>{ console.log(res)
       }
     )
-    /*this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.authService.authState.subscribe(
       (res)=>{
         if (this.signinForm.valid) {
@@ -111,8 +130,8 @@ export class SignInComponent implements OnInit {
           this.router.navigate(['/signIn']);
         }
       }
-    )*/
-  }
+    )
+  }*/
 
   loginWithFacebook() {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
