@@ -16,6 +16,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { TaproprecarteComponent } from './components/taproprecarte/taproprecarte.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import { DemandecardComponent } from './demandecard/demandecard.component';
 
 import { AuthGuard } from "./shared/guard/auth.guard";
 
@@ -28,6 +29,7 @@ const routes: Routes = [
 
 
   { path: 'home', component: HomeComponent },
+  { path: 'demandecard', component: DemandecardComponent },
 
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
@@ -41,6 +43,7 @@ const routes: Routes = [
    canActivate: [AuthGuard]
 },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'demendcard', component: DemandecardComponent },
   { path: 'commande', component:CommandesComponent},
   {path: 'designyourcart',component:DesignyourcartComponent,canActivate: [AuthGuard]},
   {path: 'thankyou',component:ThankyouComponent},

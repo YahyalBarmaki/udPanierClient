@@ -8,9 +8,9 @@ import { UserAuth } from './../../models/user';
 import { SocialUser } from 'angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { TokenStorageService } from './token-storage.service';
-const AUTH_API = 'https://card-ap.herokuapp.com/api/';
+const AUTH_API = 'http://localhost:5000/api/';
 const AUTH_API_LOCAL = 'http://localhost:5000/';
-const AUTH_SOCIAL ='https://card-ap.herokuapp.com/api/google'
+const AUTH_SOCIAL ='http://localhost:5000/api/google'
 const httpOptions : any    = {
   headers: new HttpHeaders()
 };
@@ -19,6 +19,9 @@ const httpOptions : any    = {
 })
 
 export class AuthService {
+  getToken() {
+    throw new Error("Method not implemented.");
+  }
   private baseURL = environment.endpointBase
   constructor(
     private http: HttpClient,
@@ -48,7 +51,7 @@ export class AuthService {
 
  signLogin(email: string, password: string):Observable<User>{
     return this.http.post<User>(this.baseURL + 'api/login', { email, password})
-    
+
   }
  socialRegister(body:any){
     return this.http.post(this.baseURL+'apiSocial/createSocialRegister',body)

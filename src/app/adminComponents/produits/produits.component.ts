@@ -105,7 +105,7 @@ export class ProduitsComponent implements OnInit {
             console.log(error)
           }
       }
-    )  
+    )
     this.onClose()
   }
   get productFormCtr(){
@@ -119,14 +119,4 @@ export class ProduitsComponent implements OnInit {
      * Upload an image
      */
 
-
-
-
-
-
-
-
-
-
-    
 }

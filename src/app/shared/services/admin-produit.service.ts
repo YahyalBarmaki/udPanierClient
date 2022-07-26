@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-const AUTH_API = 'https://card-ap.herokuapp.com/product/create';
+const AUTH_API = 'http://localhost:5000/product/create';
 @Injectable({
   providedIn: 'root'
 })

@@ -47,7 +47,7 @@ export class CommandesComponent implements OnInit {
         return_url: new FormControl('http://cart-ud.usinedigitale.org/thankyou'),
         callback_url: new FormControl('http://cart-ud.usinedigitale.org/thankyou')
       })
-      
+
     })
 
      shippingForm: FormGroup = new FormGroup({
@@ -65,7 +65,7 @@ export class CommandesComponent implements OnInit {
        ]),
        adresse: new FormControl("",[
          Validators.required,
-         
+
        ]),
        city: new FormControl("",[
         Validators.required,
@@ -85,7 +85,7 @@ export class CommandesComponent implements OnInit {
     console.log("test");
     this.payForm.get("invoice.total_amount")?.setValue(this.getTotalPrice());
   }
-  
+
   getTotal(): number {
     this.total = 0;
     console.log(this.cartItemArray);
@@ -114,7 +114,7 @@ export class CommandesComponent implements OnInit {
   cartFunction(){
     if (localStorage.getItem('Cart')) {
       this.cartItemArray = JSON.parse(localStorage.getItem('Cart') || '');
-    } 
+    }
   }
   nbrePanier:number = 0;
   nbrePanierFunc(){
@@ -124,7 +124,7 @@ export class CommandesComponent implements OnInit {
   }
   get fShipping() { return this.shippingForm.controls; }
 
-  
+
   effectuerPaiement(){
     if (this.shippingForm.invalid) {
       //alert("Veillez remplir les champs avant d'effectuer le paiement")
@@ -149,6 +149,6 @@ export class CommandesComponent implements OnInit {
       )
     }
   }
-  
+
 
 }
