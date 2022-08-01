@@ -1,5 +1,5 @@
 <div class="sinlge-bar shopping">
-    <a href="cart" class="single-icon"><i class="ti-bag"></i> <span
+    <a routerLink="/cart" class="single-icon"><i class="ti-bag"></i> <span
             class="total-count">{{cartItem}}</span></a>
     <!-- Shopping Item -->
     <div class="shopping-item">
@@ -12,12 +12,9 @@
                 <li>
                     <a href="#" class="remove" title="Remove this item"><i
                             class="fa fa-remove" (click)="removeItem(cart)"></i></a>
-                    <a class="cart-img"><img
-                            src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one.gif?v=1634592363"
-                            alt="#"></a>
+                    <a class="cart-img"><img src="{{cart.img}}" alt="#"></a>
                     <h4><a>{{cart.title}}</a></h4>
-                    <p class="quantity">{{cart.qtite}}x - <span
-                            class="amount">{{cart.price
+                    <p class="quantity">{{cart.qtite}}x - <span class="amount">{{cart.price
                             |
                             currency: 'Fcfa '}}</span></p>
                 </li>
@@ -31,12 +28,9 @@
             </div>
         </div>
         <div *ngIf="cartItemArray.length == 0">
-            <img
-                src="https://naukariemployment.com/assets/images/emptycart.png"
-                alt="">
+            <img src="assets/emptycart_1.png" alt="">
             <div class="col-md-12 text-center">
-                <button routerLink="/products" class="btn btn-primary">Shop
-                    Now</button>
+                <button routerLink="/products" class="btn btn-primary">Achetez maintenant</button>
             </div>
         </div>
     </div>

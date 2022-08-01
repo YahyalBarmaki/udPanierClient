@@ -6,7 +6,6 @@ import { ProductsEntreprise } from 'src/app/models/products';
 import { environment } from 'src/environments/environment';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +16,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get(this.baseURL + '/all')
+    return this.http.get('https://card-ap.herokuapp.com/product/all')
       .pipe(map((res: any) => {
         console.log(res)
         return res;

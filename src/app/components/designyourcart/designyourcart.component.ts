@@ -110,7 +110,7 @@ export class DesignyourcartComponent implements OnInit {
   imageDisplay :any;
   step = 1;
   constructor(public fb: FormBuilder, private ds: DesignyourcardService, private router: Router
-    ,private http:  HttpClient) { 
+    ,private http:  HttpClient) {
 
   }
 
@@ -224,7 +224,7 @@ export class DesignyourcartComponent implements OnInit {
             console.log(error)
           }
       }
-    )  
+    )
 
     /* this.http.post(AUTH_API,designCardFormData).subscribe(
       (response) => {
@@ -252,7 +252,7 @@ export class DesignyourcartComponent implements OnInit {
         this.errorMessage = err.error.message;
             console.log(this.errorMessage);
       }
-        
+
       )
     } */
   }

@@ -3,7 +3,7 @@
 <section class="shop single section">
     <div class="container">
 
-        <div class="row">
+        <div class="row" *ngIf="currentproduct">
             <!--button class="btn btn-default" (click)="alertSuccess()">Click</button-->
             <div class="col-12">
                 <div class="row">
@@ -13,31 +13,10 @@
                             <!-- Images slider -->
                             <div class="flexslider-thumbnails">
                                 <ul class="slides">
-                                    <li
-                                        data-thumb="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                        rel="adjustX:10, adjustY:">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                            alt="#">
+                                    <li>
+                                        <img src="{{currentproduct.img}}" alt="#">
                                     </li>
-                                    <li
-                                        data-thumb="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                            alt="#">
-                                    </li>
-                                    <li
-                                        data-thumb="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                            alt="#">
-                                    </li>
-                                    <li
-                                        data-thumb="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                            alt="#">
-                                    </li>
+
                                 </ul>
                             </div>
                             <!-- End Images slider -->
@@ -46,7 +25,7 @@
                     </div>
                     <div class="col-lg-6 col-12">
 
-                        <div class="product-des" *ngIf="currentproduct">
+                        <div class="product-des">
                             <!-- Description -->
                             <div class="short">
                                 <h4>{{currentproduct.title}} </h4>
@@ -76,35 +55,24 @@
                                     <div class="input-group">
                                         <div class="button minus">
                                             <button type="button" class="btn
-                                                btn-primary btn-number"
-                                                data-type="minus"
-                                                
-                                                (click)="moins(currentproduct)">
+                                                btn-primary btn-number" data-type="minus" (click)="moins(currentproduct)">
                                                 <i class="ti-minus"></i>
                                             </button>
                                         </div>
-                                        <input #quantity type="number"
-                                            class="input-number"
-                                            [max]="10"
-                                            [min]="2"
-                                            readonly
-                                            value="{{currentproduct.qtite}}">
-                                            <!-- <input 
-                                            type="number" 
-                                            step="1" 
-                                            max="99" 
-                                            min="1" 
-                                            [value]="currentproduct.qtite" 
-                                            title="Qty" 
+                                        <input #quantity type="number" class="input-number" [max]="10" [min]="2" readonly value="{{currentproduct.qtite}}">
+                                        <!-- <input
+                                            type="number"
+                                            step="1"
+                                            max="99"
+                                            min="1"
+                                            [value]="currentproduct.qtite"
+                                            title="Qty"
                                             class="input-number"
                                             size="4"
                                             > -->
                                         <div class="button plus">
                                             <button type="button" class="btn
-                                                btn-primary btn-number"
-                                                
-                                                data-type="plus"
-                                                (click)="plus(currentproduct)">
+                                                btn-primary btn-number" data-type="plus" (click)="plus(currentproduct)">
                                                 <i class="ti-plus"></i>
                                             </button>
                                         </div>
@@ -113,15 +81,14 @@
                                 </div>
                                 <div class="add-to-cart">
 
-                                    <a  class="btn" routerLink="/cart"
-                                        (click)="addToCart(currentproduct)">Ajouter
+                                    <a class="btn" routerLink="/cart" (click)="addToCart(currentproduct)">Ajouter
                                         au panier</a>
-                                    <a  class="btn min"><i
+                                    <a class="btn min"><i
                                             class="ti-heart"></i></a>
-                                    <a  class="btn min"><i class="fa
+                                    <a class="btn min"><i class="fa
                                             fa-compress"></i></a>
                                 </div>
-                                <p class="cat">Catégorie :<a href="#">Lorem</a></p>
+                                <p class="cat">Catégorie :<a href="#"></a></p>
                             </div>
                             <!--/ End Product Buy -->
                         </div>
@@ -165,19 +132,13 @@
                     <div class="single-product">
                         <div class="product-img">
                             <a href="#">
-                                <img class="default-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
-                                <img class="hover-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
+                                <img class="default-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
+                                <img class="hover-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
                                 <span class="out-of-stock">New</span>
                             </a>
                             <div class="button-head">
                                 <div class="product-action">
-                                    <a data-toggle="modal"
-                                        data-target="#exampleModal"
-                                        title="Quick View" href="#"><i
+                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
                                             class="ti-eye"></i><span>Boutique</span></a>
                                     <a title="Wishlist" href="#"><i
                                             class="ti-heart"></i><span>Ajouter
@@ -187,8 +148,7 @@
                                 </div>
                                 <div class="product-action-2">
                                     <a title="Add to cart" href="#">
-                                        <i _ngcontent-cyr-c299=""
-                                            class="ti-shopping-cart"></i>
+                                        <i _ngcontent-cyr-c299="" class="ti-shopping-cart"></i>
                                     </a>
                                 </div>
                             </div>
@@ -206,18 +166,12 @@
                     <div class="single-product">
                         <div class="product-img">
                             <a href="#">
-                                <img class="default-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
-                                <img class="hover-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
+                                <img class="default-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
+                                <img class="hover-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
                             </a>
                             <div class="button-head">
                                 <div class="product-action">
-                                    <a data-toggle="modal"
-                                        data-target="#exampleModal"
-                                        title="Quick View" href="#"><i
+                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
                                             class="ti-eye"></i><span>Boutique</span></a>
                                     <a title="Wishlist" href="#"><i
                                             class="ti-heart"></i><span>Ajouter
@@ -227,8 +181,7 @@
                                 </div>
                                 <div class="product-action-2">
                                     <a title="Add to cart" href="#">
-                                        <i _ngcontent-cyr-c299=""
-                                            class="ti-shopping-cart"></i>
+                                        <i _ngcontent-cyr-c299="" class="ti-shopping-cart"></i>
                                     </a>
                                 </div>
                             </div>
@@ -245,19 +198,13 @@
                     <div class="single-product">
                         <div class="product-img">
                             <a href="#">
-                                <img class="default-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
-                                <img class="hover-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
+                                <img class="default-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
+                                <img class="hover-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
                                 <span class="new">New</span>
                             </a>
                             <div class="button-head">
                                 <div class="product-action">
-                                    <a data-toggle="modal"
-                                        data-target="#exampleModal"
-                                        title="Quick View" href="#"><i
+                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
                                             class="ti-eye"></i><span>Boutique</span></a>
                                     <a title="Wishlist" href="#"><i
                                             class="ti-heart"></i><span>Ajouter
@@ -267,8 +214,7 @@
                                 </div>
                                 <div class="product-action-2">
                                     <a title="Add to cart" href="#">
-                                        <i _ngcontent-cyr-c299=""
-                                            class="ti-shopping-cart"></i>
+                                        <i _ngcontent-cyr-c299="" class="ti-shopping-cart"></i>
                                     </a>
                                 </div>
                             </div>
@@ -285,18 +231,12 @@
                     <div class="single-product">
                         <div class="product-img">
                             <a href="#">
-                                <img class="default-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
-                                <img class="hover-img"
-                                    src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363"
-                                    alt="#">
+                                <img class="default-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
+                                <img class="hover-img" src="https://cdn.shopify.com/s/files/1/0263/6156/1168/products/Hybrid-Card-metal_one_343x.gif?v=1634592363" alt="#">
                             </a>
                             <div class="button-head">
                                 <div class="product-action">
-                                    <a data-toggle="modal"
-                                        data-target="#exampleModal"
-                                        title="Quick View" href="#"><i
+                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i
                                             class="ti-eye"></i><span>Boutique</span></a>
                                     <a title="Wishlist" href="#"><i
                                             class="ti-heart"></i><span>Ajouter
@@ -306,8 +246,7 @@
                                 </div>
                                 <div class="product-action-2">
                                     <a title="Add to cart" href="#">
-                                        <i _ngcontent-cyr-c299=""
-                                            class="ti-shopping-cart"></i>
+                                        <i _ngcontent-cyr-c299="" class="ti-shopping-cart"></i>
                                     </a>
                                 </div>
                             </div>

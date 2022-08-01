@@ -1,29 +1,18 @@
-/* form.normal-form {
-  margin: 10px;
-}
-.controles-container {
-  width: 100%;
-  padding: 5%;
-}
-.controles-container > * {
-  width: 100%;
-}
-.add-bottom-padding {
-  padding-bottom: 10px;
-} */
 .warn {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 h6 {
-  position: relative;
-  bottom: -30px;
+    position: relative;
+    bottom: -30px;
 }
+
 .title-product {
-  background-color: rgb(252, 252, 252);
+    background-color: rgb(252, 252, 252);
 }
+
 .btn-default {
-  position: relative;
-  bottom: 14px;
-  right: -581px;
+    position: relative;
+    bottom: 14px;
+    right: -581px;
 }

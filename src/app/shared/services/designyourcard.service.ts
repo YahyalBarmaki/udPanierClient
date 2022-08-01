@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const AUTH_API = 'http://localhost:5000/design/create';
+const AUTH_API = 'https://card-ap.herokuapp.com/design/create';
 
 @Injectable({
   providedIn: 'root'

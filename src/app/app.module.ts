@@ -22,7 +22,6 @@ import { GraphQLModule } from './graphql.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
-import { HomeAdminPanelComponent } from './components/admin-panel/home-admin-panel/home-admin-panel.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductsItemComponent } from './components/products/products-item/products-item.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
@@ -44,6 +43,10 @@ import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { CommandePlusComponent } from './components/commande-plus/commande-plus.component';
 import { ListProduitsComponent } from './adminComponents/list-produits/list-produits.component';
 import { ProduitsComponent } from './adminComponents/produits/produits.component';
+import { TaproprecarteComponent } from './components/taproprecarte/taproprecarte.component';
+import { presentationComponent } from './components/presentationapp/presentation.component';
+import { DemandecardComponent } from './demandecard/demandecard.component';
+
 
 
 @NgModule({
@@ -61,7 +64,6 @@ import { ProduitsComponent } from './adminComponents/produits/produits.component
     CompatibilityComponent,
     HappyCustomersComponent,
     UserProfilComponent,
-    HomeAdminPanelComponent,
     DashboardComponent,
     ProductsItemComponent,
     CartItemComponent,
@@ -74,6 +76,9 @@ import { ProduitsComponent } from './adminComponents/produits/produits.component
     CommandePlusComponent,
     ListProduitsComponent,
     ProduitsComponent,
+    TaproprecarteComponent,
+    presentationComponent,
+    DemandecardComponent,
 
   ],
   imports: [
@@ -82,7 +87,8 @@ import { ProduitsComponent } from './adminComponents/produits/produits.component
     RouterModule.forRoot([
       { path: 'products', component: ProductsComponent },
       { path: 'products/:productId', component: DetailsProductComponent },
-      { path: 'cart', component: CartComponent }
+      { path: 'cart', component: CartComponent },
+      { path: 'presentation', component: presentationComponent }
     ]),
     AppRoutingModule,
     BrowserAnimationsModule,
