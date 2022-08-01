@@ -44,7 +44,9 @@ import { CommandePlusComponent } from './components/commande-plus/commande-plus.
 import { ListProduitsComponent } from './adminComponents/list-produits/list-produits.component';
 import { ProduitsComponent } from './adminComponents/produits/produits.component';
 import { TaproprecarteComponent } from './components/taproprecarte/taproprecarte.component';
+import { presentationComponent } from './components/presentationapp/presentation.component';
 import { DemandecardComponent } from './demandecard/demandecard.component';
+
 
 
 @NgModule({
@@ -75,6 +77,7 @@ import { DemandecardComponent } from './demandecard/demandecard.component';
     ListProduitsComponent,
     ProduitsComponent,
     TaproprecarteComponent,
+    presentationComponent,
     DemandecardComponent,
 
   ],

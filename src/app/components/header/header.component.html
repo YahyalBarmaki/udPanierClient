@@ -33,7 +33,7 @@
                             <li><i class="ti-user"></i> <a routerLink='/signIn'>Mon
                   compte</a></li>
                             <li *ngIf="!this.authService.isLoggedIn"><i class="ti-power-off"></i><a routerLink='/signIn'>Se connecter</a></li>
-                            <li *ngIf="this.authService.isLoggedIn"><i class="ti-power-off"></i><a (click)="logout()">Se deconnecter</a></li>
+                            <li *ngIf="this.authService.isLoggedIn"><i class="ti-power-off"></i><a routerLink='/signIn'>Se deconnecter</a></li>
                         </ul>
                     </div>
                     <!-- End Top Right -->
@@ -117,7 +117,7 @@
                                             <li [routerLinkActive]="['active']"><a routerLink="/home">ACCUEIL</a></li>
                                             <li [routerLinkActive]="['active']"><a routerLink="/products">PRODUITS</a></li>
                                             <li [routerLinkActive]="['active']"><a (click)="openDialog()">LISTE DE COMPATIBILITÉ</a></li>
-                                            <li><a href="demandecard">DEMANDE CARTE</a></li>
+                                            <li><a href="demandecard">GALLERY CARTE</a></li>
                                         </ul>
                                     </div>
                                 </div>
